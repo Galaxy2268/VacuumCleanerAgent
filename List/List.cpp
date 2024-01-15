@@ -9,22 +9,22 @@ template<typename T>
 void List<T>::searchDeleteBack(int id){
     ListEl<T> * current = this->tail;
     int idCount = this->length - 1;
-    while(current != NULL){
+    while(current != nullptr){
         if(idCount == id){
 
 
-            if(current->getPrev() == NULL){
+            if(current->getPrev() == nullptr){
                 this->head = current->getNext();
             }
-            if(current->getNext() == NULL){
+            if(current->getNext() == nullptr){
                 this->tail = current->getPrev();
             }
 
-            if(current->getPrev() != NULL){
+            if(current->getPrev() != nullptr){
                 current->getPrev()->setNext(current->getNext());
             }
 
-            if(current->getNext() != NULL){
+            if(current->getNext() != nullptr){
                 current->getNext()->setPrev(current->getPrev());
             }
 
@@ -47,22 +47,22 @@ template<typename T>
 void List<T>::searchDeleteFront(int id){
     ListEl<T> * current = this->head;
     int idCount = 0;
-    while(current != NULL){
+    while(current != nullptr){
         if(idCount == id){
 
 
-            if(current->getPrev() == NULL){
+            if(current->getPrev() == nullptr){
                 this->head = current->getNext();
             }
-            if(current->getNext() == NULL){
+            if(current->getNext() == nullptr){
                 this->tail = current->getPrev();
             }
 
-            if(current->getPrev() != NULL){
+            if(current->getPrev() != nullptr){
                 current->getPrev()->setNext(current->getNext());
             }
 
-            if(current->getNext() != NULL){
+            if(current->getNext() != nullptr){
                 current->getNext()->setPrev(current->getPrev());
             }
 
@@ -93,8 +93,8 @@ template <typename T>
 template <typename... Args>
 List<T>::List(Args... data){
     this->length = 0;
-    this->head = NULL;
-    this->tail = NULL;
+    this->head = nullptr;
+    this->tail = nullptr;
     (this->addBack(data), ...);
 }
 
@@ -180,7 +180,7 @@ void List<T>::addFront(T data){
 template <typename T>
 void List<T>::print(){
     ListEl<T> * current = this->head;
-    while(current != NULL){
+    while(current != nullptr){
         cout << current->getData() << " ";
         current = current->getNext();
         
@@ -196,23 +196,23 @@ void List<T>::remove(T data){
     }
     bool sw = false;
     ListEl<T> * current = this->head;
-    while(current != NULL){
+    while(current != nullptr){
         ListEl<T> * temp = current;
         if(current->getData() == data){
 
 
-            if(current->getPrev() == NULL){
+            if(current->getPrev() == nullptr){
                 this->head = current->getNext();
             }
-            if(current->getNext() == NULL){
+            if(current->getNext() == nullptr){
                 this->tail = current->getPrev();
             }
 
-            if(current->getPrev() != NULL){
+            if(current->getPrev() != nullptr){
                 current->getPrev()->setNext(current->getNext());
             }
 
-            if(current->getNext() != NULL){
+            if(current->getNext() != nullptr){
                 current->getNext()->setPrev(current->getPrev());
             }
 
@@ -241,10 +241,10 @@ void List<T>::removeBack(){
     }
     ListEl<T> * prevNode  = this->tail->getPrev();
 
-    if(prevNode != NULL){
-        prevNode->setNext(NULL);
+    if(prevNode != nullptr){
+        prevNode->setNext(nullptr);
     }else{
-        this->head = NULL;
+        this->head = nullptr;
     }
 
     delete this->tail;
@@ -260,10 +260,10 @@ void List<T>::removeFront(){
     }
     ListEl<T> * nextNode  = this->head->getNext();
 
-    if(nextNode != NULL){
-        nextNode->setPrev(NULL);
+    if(nextNode != nullptr){
+        nextNode->setPrev(nullptr);
     }else{
-        this->head = NULL;
+        this->head = nullptr;
     }
 
     delete this->head;
