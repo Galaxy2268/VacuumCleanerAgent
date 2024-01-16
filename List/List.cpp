@@ -113,7 +113,7 @@ T List<T>::getElById(int index){
         return current->getData();
     }else{
         ListEl<T> * current = this->head;
-        for(int i = 1; i <= index; i++){
+        for(int i = 0; i < index; i++){
             current = current->getNext();
             
         }
@@ -176,6 +176,46 @@ void List<T>::addFront(T data){
     this->length++;
 
 }
+
+template <typename T>
+void List<T>::add(T data, int index){
+    if(index < 0 || index > size() - 1 || isEmpty()){
+        throw out_of_range("Index out of bounds");
+    }
+    if(index == 0){
+        addFront(data);
+    }else if (index == size() - 1){
+        addBack(data);
+    }else{
+        ListEl<T> * newNode  = new ListEl<T>(data);
+        if(this->size() / 2 < index){
+            ListEl<T> * current = this->tail;
+            for(int i = this->size() - 1; i > index; i--){
+                current = current->getPrev();
+            }
+            newNode->setNext(current);
+            newNode->setPrev(current->getPrev());
+            current->getPrev()->setNext(newNode);
+            current->setPrev(newNode);
+            this->length++;
+        }else{
+            ListEl<T> * current = this->head;
+            for(int i = 0; i < index; i++){
+                current = current->getNext();
+            
+            }
+            newNode->setNext(current);
+            newNode->setPrev(current->getPrev());
+            current->getPrev()->setNext(newNode);
+            current->setPrev(newNode);
+            this->length++;
+
+        }
+
+    }
+}
+
+
 
 template <typename T>
 void List<T>::print(){

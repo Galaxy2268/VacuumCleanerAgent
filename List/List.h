@@ -35,6 +35,8 @@ void addBack(T data);
 
 void addFront(T data);
 
+void add(T data, int index);
+
 void print();
 
 void remove(T data);
