@@ -179,12 +179,12 @@ void List<T>::addFront(T data){
 
 template <typename T>
 void List<T>::add(T data, int index){
-    if(index < 0 || index > size() - 1 || isEmpty()){
+    if(index < 0 || index > size() || isEmpty()){
         throw out_of_range("Index out of bounds");
     }
     if(index == 0){
         addFront(data);
-    }else if (index == size() - 1){
+    }else if (index == size()){
         addBack(data);
     }else{
         ListEl<T> * newNode  = new ListEl<T>(data);
