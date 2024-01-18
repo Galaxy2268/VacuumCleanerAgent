@@ -15,6 +15,8 @@ public:
 template <typename... Args>
 Vector(Args... data);
 
+~Vector();
+
 int size();
 
 void pushBack(T data);

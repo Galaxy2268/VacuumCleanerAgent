@@ -98,6 +98,28 @@ List<T>::List(Args... data){
     (this->addBack(data), ...);
 }
 
+
+template <typename T>
+List<T>::~List(){
+    this->clear();
+}
+
+
+
+
+template <typename T>
+void List<T>::clear(){
+    ListEl<T> * current = this->head;
+    int size = this->size();
+    if(!this->isEmpty()){
+        for(int i = 0; i <= size; i++){
+            this->removeFront();      
+        }
+    }
+    
+}
+
+
 template <typename T>
 T List<T>::getElById(int index){
     if(index < 0 || index > size() - 1 || isEmpty()){
@@ -285,6 +307,7 @@ void List<T>::removeBack(){
         prevNode->setNext(nullptr);
     }else{
         this->head = nullptr;
+        this->tail = nullptr;
     }
 
     delete this->tail;
@@ -304,6 +327,7 @@ void List<T>::removeFront(){
         nextNode->setPrev(nullptr);
     }else{
         this->head = nullptr;
+        this->tail = nullptr;
     }
 
     delete this->head;

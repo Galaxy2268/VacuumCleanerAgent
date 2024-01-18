@@ -20,6 +20,10 @@ public:
 template <typename... Args>
 List(Args... data);
 
+~List();
+
+
+void clear();
 
 T getElById(int index);
 

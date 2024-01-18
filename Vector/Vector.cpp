@@ -9,6 +9,11 @@ Vector<T>::Vector(Args... data) : vector(data...){
 }
 
 template <class T>
+Vector<T>::~Vector(){
+    this->vector.clear();
+}
+
+template <class T>
 int Vector<T>::size(){
     return vector.size();
 }
