@@ -79,10 +79,78 @@ void List<T>::searchDeleteFront(int id){
 
 }
 
+template<typename T>
+ListEl<T> * List<T>::split(ListEl<T> * head){
+    ListEl<T> * fast = head, * slow = head; 
+    while (fast->getNext() != nullptr && fast->getNext()->getNext() != nullptr) 
+    { 
+        fast = fast->getNext()->getNext(); 
+        slow = slow->getNext(); 
+    } 
+    ListEl<T> * temp = slow->getNext(); 
+    slow->setNext(nullptr);; 
+    return temp;
+}
+
+template<typename T>
+ListEl<T> * List<T>::merge(ListEl<T> *first, ListEl<T> *second){
+    if (first == nullptr) 
+        return second; 
+ 
+    if (second == nullptr) 
+        return first; 
+ 
+    if (first->getData() < second->getData()) 
+    { 
+        first->setNext(merge(first->getNext(),second));
+        first->getNext()->setPrev(first); 
+        first->setPrev(nullptr);
+        return first; 
+    } 
+    else
+    { 
+        second->setNext(merge(first,second->getNext())); 
+        second->getNext()->setPrev(second); 
+        second->setPrev(nullptr); 
+        return second; 
+    } 
+}
+
+template<typename T>
+void List<T>::insert(ListEl<T> **head, T data){
+    ListEl<T> * temp = new ListEl<T>;
+    temp->setData(data);
+    temp->setNext(nullptr);
+    temp->setPrev(nullptr);
+    if (this->*head == nullptr)
+        (*head) = temp; 
+    else{ 
+        temp->setNext(this->*head);
+        (this->*head)->setPrev(temp);
+        (this->*head) = temp; 
+    } 
+}
+
+template<typename T>
+void List<T>::swap(T * a, T * b){
+    int temp = *a; 
+    *a = *b; 
+    *b = temp; 
+}
+
+template <typename T>
+ListEl<T> * List<T>::mergeSort(ListEl<T> * head){
+    if (head == nullptr || head->getNext() == nullptr) 
+        return head; 
+
+    ListEl<T> * second = split(head); 
+
+    head = mergeSort(head); 
+    second = mergeSort(second); 
 
 
-
-
+    return merge(head, second);
+}
 
 
 
@@ -122,7 +190,12 @@ void List<T>::clear(){
 
 template <typename T>
 void List<T>::sort(){
-    
+    mergeSort(this->head);
+    ListEl<T> * current = this->head;
+    while (current->getNext() != nullptr) {
+        current = current->getNext();
+    }
+    this->tail = current;
 }
 
 

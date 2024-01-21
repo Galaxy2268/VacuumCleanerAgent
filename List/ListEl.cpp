@@ -18,6 +18,11 @@ void ListEl<T>::setNext(ListEl<T> * next){
 }
 
 template<typename T>
+void ListEl<T>::setData(T data){
+    this->data = data;
+}
+
+template<typename T>
 T ListEl<T>::getData(){
     return this->data;
 }

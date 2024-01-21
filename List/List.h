@@ -15,6 +15,16 @@ void searchDeleteBack(int id);
 
 void searchDeleteFront(int id);
 
+ListEl<T> * split(ListEl<T> * head);
+
+ListEl<T> * merge(ListEl<T> *first, ListEl<T> *second);
+
+void insert(ListEl<T> **head, T data);
+
+void swap(T * a, T * b);
+
+ListEl<T> * mergeSort(ListEl<T> * head);
+
 public:
 
 template <typename... Args>
@@ -22,10 +32,9 @@ List(Args... data);
 
 ~List();
 
+void sort();
 
 void clear();
-
-void sort();
 
 int getIdOf(T data);
 

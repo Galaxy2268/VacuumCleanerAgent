@@ -17,6 +17,8 @@ void setPrev(ListEl<T> * prev);
 
 void setNext(ListEl<T> * next);
 
+void setData(T);
+
 T getData();
 
 ListEl<T> * getNext();
