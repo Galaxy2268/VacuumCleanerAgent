@@ -19,9 +19,6 @@ ListEl<T> * split(ListEl<T> * head);
 
 ListEl<T> * merge(ListEl<T> *first, ListEl<T> *second);
 
-void insert(ListEl<T> **head, T data);
-
-void swap(T * a, T * b);
 
 ListEl<T> * mergeSort(ListEl<T> * head);
 
