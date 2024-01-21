@@ -25,6 +25,10 @@ List(Args... data);
 
 void clear();
 
+void sort();
+
+int getIdOf(T data);
+
 T getElById(int index);
 
 T getFirst();

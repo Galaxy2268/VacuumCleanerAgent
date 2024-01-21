@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "*.cs": "csharp",
-        "stdexcept": "cpp"
+        "stdexcept": "cpp",
+        "iostream": "cpp"
     }
 }

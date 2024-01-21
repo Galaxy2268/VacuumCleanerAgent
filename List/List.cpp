@@ -121,6 +121,32 @@ void List<T>::clear(){
 
 
 template <typename T>
+void List<T>::sort(){
+    
+}
+
+
+template <typename T>
+int List<T>::getIdOf(T data){
+    if(this->isEmpty()){
+        throw out_of_range("List is empty");
+    }
+    ListEl<T> * current = this->head;
+    int index = 0;
+    while(current->getData() != data){
+        if(current->getNext() == nullptr){
+            throw out_of_range("No such an element");
+        }
+        current = current->getNext();
+        index++;
+    }
+    return index;
+
+
+}
+
+
+template <typename T>
 T List<T>::getElById(int index){
     if(index < 0 || index > size() - 1 || isEmpty()){
         throw out_of_range("Index out of bounds");
