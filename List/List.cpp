@@ -125,16 +125,17 @@ ListEl<T> * List<T>::mergeSort(ListEl<T> * head){
     ListEl<T>* sortedFirst = mergeSort(head);
     ListEl<T>* sortedSecond = mergeSort(second);
 
-    head = merge(sortedFirst, sortedSecond);
+    ListEl<T>* newHead = merge(sortedFirst, sortedSecond);
 
-    ListEl<T>* tail = head;
+    ListEl<T>* tail = newHead;
     while (tail->getNext() != nullptr) {
         tail = tail->getNext();
     }
 
+    this->head = newHead;
     this->tail = tail;
 
-    return head;
+    return newHead;
 }
 
 
