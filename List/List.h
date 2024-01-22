@@ -19,7 +19,6 @@ ListEl<T> * split(ListEl<T> * head);
 
 ListEl<T> * merge(ListEl<T> *first, ListEl<T> *second);
 
-
 ListEl<T> * mergeSort(ListEl<T> * head);
 
 public:

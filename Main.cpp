@@ -10,7 +10,7 @@ using namespace std;
 
 int main(){
 
-    List<float> list(0,2,4,1,3,5,6,64,4);
+    List<char> list('a','c','b','f','v','i');
     list.sort();
     list.print();
 
