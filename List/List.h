@@ -30,6 +30,9 @@ List(Args... data);
 
 void sort();
 
+//use if your list is already sorted
+void addSortedBack(T data);
+
 void clear();
 
 int getIdOf(T data);

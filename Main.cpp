@@ -10,12 +10,22 @@ using namespace std;
 
 int main(){
 
-    List<int> list(2,3,1,6,4,8,6,9,0);
-    list.sort();
-    list.add(11, 4);
-    list.addBack(5);
-    list.addFront(0);
-    list.sort();
+    List<int> list(1,2,3,4,5,6,7,8);
+    list.addSortedBack(4);
+    list.addSortedBack(1);
+    list.addSortedBack(8);
+    list.addSortedBack(9);
+    list.addSortedBack(6);
+    list.addSortedBack(11);
+    list.addSortedBack(0);
+    list.addSortedBack(4);
+    list.addSortedBack(9);
+    list.addSortedBack(9);
+    list.addSortedBack(9);
+    list.addSortedBack(9);
+    list.addSortedBack(55);
+    list.addSortedBack(45);
+    list.addSortedBack(100);
     list.print();
 
 

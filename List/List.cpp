@@ -179,6 +179,33 @@ void List<T>::sort(){
     mergeSort(this->head);
 }
 
+template <typename T>
+void List<T>::addSortedBack(T data){
+    if(this->size() <= 1 || data >= this->tail->getData()){
+        this->addBack(data);
+        return;
+    }
+    if(data <= this->head->getData()){
+        this->addFront(data);
+        return;
+    }
+
+    ListEl<T> * newNode  = new ListEl<T>(data);
+    ListEl<T> * current  = this->tail;
+
+    while (data < current->getData()){
+        current = current->getPrev();
+    }
+    newNode->setPrev(current);
+    newNode->setNext(current->getNext());
+    current->getNext()->setPrev(newNode);
+    current->setNext(newNode);
+    this->length++;
+    
+
+
+}
+
 
 template <typename T>
 int List<T>::getIdOf(T data){
