@@ -35,6 +35,8 @@ void addSortedBack(T data);
 
 void clear();
 
+void reverse();
+
 int getIdOf(T data);
 
 T getElById(int index);

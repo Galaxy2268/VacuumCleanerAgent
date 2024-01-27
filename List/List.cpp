@@ -87,7 +87,7 @@ ListEl<T> * List<T>::split(ListEl<T> * head){
         slow = slow->getNext(); 
     } 
     ListEl<T> * temp = slow->getNext(); 
-    slow->setNext(nullptr);; 
+    slow->setNext(nullptr); 
     return temp;
 }
 
@@ -177,6 +177,30 @@ void List<T>::clear(){
 template <typename T>
 void List<T>::sort(){
     mergeSort(this->head);
+}
+
+template<typename T>
+void List<T>::reverse(){
+    if(this->size() <= 1){
+        return;
+    }
+
+    ListEl<T> * current = this->head;
+
+    while (current->getNext() != nullptr){
+        ListEl<T> * temp = current->getNext();
+        current->setNext(current->getPrev());
+        current->setPrev(temp);
+        current = current->getPrev();
+    }
+
+    this->tail->setNext(tail->getPrev());
+    this->tail->setPrev(nullptr);
+
+    current = this->head;
+    this->head = this->tail;
+    this->tail = current;
+    
 }
 
 template <typename T>
