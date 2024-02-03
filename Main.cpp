@@ -16,7 +16,4 @@ int main(){
     list.reverse();
     list.print();
 
-
-
-
 }
