@@ -9,7 +9,7 @@ Vector<T>::Vector(Args... data) : vector(data...){
 }
 
 template <class T>
-Vector<T>::~Vector(){
+void Vector<T>::clear(){
     this->vector.clear();
 }
 

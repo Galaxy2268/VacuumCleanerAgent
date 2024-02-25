@@ -1,4 +1,3 @@
-#include "../List/List.h"
 #include <iostream>
 #include "PriorityQueue.h"
 
@@ -14,7 +13,7 @@ PriorityQueue<T>::PriorityQueue(Args... data) : priorityQ(data...){
 
 
 template<class T>
-PriorityQueue<T>::~PriorityQueue(){
+void PriorityQueue<T>::clear(){
   priorityQ.clear();
 }
 

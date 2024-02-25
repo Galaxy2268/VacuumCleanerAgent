@@ -166,7 +166,7 @@ void List<T>::clear(){
     ListEl<T> * current = this->head;
     int size = this->size();
     if(!this->isEmpty()){
-        for(int i = 0; i <= size; i++){
+        for(int i = 0; i < size; i++){
             this->removeFront();      
         }
     }

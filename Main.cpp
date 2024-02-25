@@ -3,6 +3,7 @@
 #include "Vector/Vector.h"
 #include "List/List.h"
 #include "Pair/Pair.h"
+#include "PriorityQueue/PriorityQueue.h"
 
 using namespace std;
 
@@ -22,6 +23,10 @@ int main(){
 
     cout << "TEST" << "\n";
     pair1.print();
+
+    PriorityQueue<int> list(1,2,3,4,5,6,7,8,9);
+    list.print();
+    list.clear();
 
 
 }
