@@ -10,12 +10,11 @@ private:
 List<Pair<Key, Value>> map;
 
 public:
-
 Map();
 
 void insert(Key key, Value value);
 
-void deletePair(Key key);
+void remove(Key key);
 
 int size();
 
@@ -27,7 +26,7 @@ Key getByValue(Value value);
 
 bool exists(Key key);
 
-bool updateValue(Key key)
+void updateValue(Key key, Value value);
 
 
 };

@@ -41,6 +41,8 @@ int getIdOf(T data);
 
 T getElById(int index);
 
+T& getReferenceById(int index);
+
 T getFirst();
 
 T getLast();

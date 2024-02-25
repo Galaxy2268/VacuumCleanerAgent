@@ -273,7 +273,29 @@ T List<T>::getElById(int index){
         return current->getData();
     }
 
+}
 
+template <typename T>
+T& List<T>::getReferenceById(int index){
+    if(index < 0 || index > size() - 1 || isEmpty()){
+        throw out_of_range("Index out of bounds");
+    }
+
+
+    if(this->size() / 2 < index){
+        ListEl<T> * current = this->tail;
+        for(int i = this->size() - 1; i > index; i--){
+            current = current->getPrev();
+        }
+        return current->getReference();
+    }else{
+        ListEl<T> * current = this->head;
+        for(int i = 0; i < index; i++){
+            current = current->getNext();
+            
+        }
+        return current->getReference();
+    }
 
 }
 
