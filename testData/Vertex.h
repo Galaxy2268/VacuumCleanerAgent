@@ -5,6 +5,7 @@
 #include "../PriorityQueue/PriorityQueue.h"
 #include "../Pair/Pair.h"
 #include "GraphEdge.h"
+#include "../Map/Map.h"
 using namespace std;
 
 class Vertex{
@@ -12,16 +13,17 @@ class Vertex{
 private:
 int cityID;
 string cityName;
-PriorityQueue <GraphEdge> neighbours;
+Map<cityID, cityName> cities;
+PriorityQueue<GraphEdge> neighbours;
 
 public:
-Vertex(int cityID, string cityName, PriorityQueue <GraphEdge> neighbours);
+Vertex(Map<cityID, cityName> cities, PriorityQueue<GraphEdge> neighbours);
 
 int getID();
 
 string getName();
 
-PriorityQueue <GraphEdge> getNeighbours();
+PriorityQueue<GraphEdge> getNeighbours();
 
 };
 
