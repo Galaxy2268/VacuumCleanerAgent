@@ -19,7 +19,7 @@ public:
 template <typename... Args>
 PriorityQueue(Args... data);
 
-~PriorityQueue();
+void clear();
 
 bool isEmpty();
 

@@ -15,7 +15,7 @@ public:
 template <typename... Args>
 Vector(Args... data);
 
-~Vector();
+void clear();
 
 int size();
 

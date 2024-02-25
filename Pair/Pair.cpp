@@ -29,7 +29,7 @@ void Pair<T1,T2>::setSecond(T2 second){
 
 template <typename T1, typename T2>
 void Pair<T1,T2>::print(){
-    std::cout << getFirst() << " " << getSecond();
+    std::cout << getFirst() << " " << getSecond() << "\n";
 }
 
 

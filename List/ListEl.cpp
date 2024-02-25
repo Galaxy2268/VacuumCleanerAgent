@@ -1,11 +1,7 @@
 #include "ListEl.h"
 
 template<typename T>
-ListEl<T>::ListEl(T data) {
-    this->data = data;
-    this->prev = nullptr;
-    this->next = nullptr;
-}
+ListEl<T>::ListEl(T data) : data(data), prev(nullptr), next(nullptr) {}
 
 template<typename T>
 void ListEl<T>::setPrev(ListEl<T> * prev){
@@ -24,6 +20,11 @@ void ListEl<T>::setData(T data){
 
 template<typename T>
 T ListEl<T>::getData(){
+    return this->data;
+}
+
+template<typename T>
+T& ListEl<T>::getReference(){
     return this->data;
 }
 

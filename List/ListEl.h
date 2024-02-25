@@ -21,6 +21,8 @@ void setData(T);
 
 T getData();
 
+T& getReference();
+
 ListEl<T> * getNext();
 
 ListEl<T> * getPrev();
