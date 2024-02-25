@@ -6,14 +6,15 @@
 #include "../Pair/Pair.h"
 #include "Vertex.h"
 using namespace std;
+
 class GraphEdge{ 
 
 private:
-Pair<int, int> cities;
+Pair<string, string> cityPair;
 int cost;
 
 public:
-GraphEdge(Pair<int, int> cities, int cost);
+GraphEdge(Pair<string, string> cityPair, int cost);
 
 int getFrom();
 
