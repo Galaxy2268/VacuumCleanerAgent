@@ -3,9 +3,7 @@
 
 #include <iostream>
 #include "../PriorityQueue/PriorityQueue.h"
-#include "../Pair/Pair.h"
 #include "GraphEdge.h"
-#include "../Map/Map.h"
 using namespace std;
 
 class Vertex{
@@ -13,11 +11,18 @@ class Vertex{
 private:
 int cityID;
 string cityName;
-Map<cityID, cityName> cities;
 PriorityQueue<GraphEdge> neighbours;
 
 public:
-Vertex(Map<cityID, cityName> cities, PriorityQueue<GraphEdge> neighbours);
+Vertex(int cityID, string cityName, PriorityQueue<GraphEdge> neighbours);
+
+Vertex();
+
+int setID(int cityID);
+
+string setName(string cityName);
+
+PriorityQueue<GraphEdge> setNeighbours(PriorityQueue<GraphEdge> neighbours);
 
 int getID();
 
