@@ -6,28 +6,14 @@
 #include "PriorityQueue/PriorityQueue.h"
 #include "Map/Map.h"
 #include "List/ListEl.h"
+#include "testData/GraphEdge.h"
 
 using namespace std;
 
 //Main function
 int main(){
 
-    Map<int, string> map;
-    map.insert(1,"hello");
-    map.insert(2,"word");
-    map.insert(3,"!");
-
-    cout << map.get(1);
-    cout << map.get(2);
-    cout << map.get(3);
-    cout << "\n";
-    bool t = map.exists(3);
-    bool f = map.exists(4);
-    cout << map.getByValue("hello");
-    cout << map.size();
-    map.updateValue(2, "world");
-    cout << map.get(2);
-    map.clear();
+List<GraphEdge> hello;
 
     Pair<int, int> hi;
 

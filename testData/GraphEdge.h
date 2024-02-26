@@ -2,7 +2,6 @@
 #define GRAPHEDGE_H
 
 #include <iostream>
-#include "../PriorityQueue/PriorityQueue.h"
 #include "../Pair/Pair.h"
 #include "Vertex.h"
 using namespace std;
@@ -10,11 +9,16 @@ using namespace std;
 class GraphEdge{ 
 
 private:
-Pair<string, string> cityPair;
+int cityID;
 int cost;
+Pair<int, int> cityPair;
 
 public:
-GraphEdge(Pair<string, string> cityPair, int cost);
+GraphEdge(int cityID, Pair<int, int> cityPair);
+
+void setFrom(int cityID);
+
+void setPair(Pair<int, int>);
 
 int getFrom();
 
