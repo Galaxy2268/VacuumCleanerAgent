@@ -7,13 +7,18 @@ Vertex::Vertex(int cityID, string cityName, PriorityQueue<GraphEdge> neighbours)
     this->neighbours = neighbours;
 }
 
-Vertex::Vertex(){}
 
-int Vertex::setID(int cityID){}
+void Vertex::setID(int cityID){
+    this->cityID = cityID;
+}
 
-string Vertex::setName(string cityName){}
+void Vertex::setName(string cityName){
+    this->cityName = cityName;
+}
 
-PriorityQueue<GraphEdge> Vertex::setNeighbours(PriorityQueue<GraphEdge> neighbours){}
+void Vertex::setNeighbours(PriorityQueue<GraphEdge> neighbours){
+    this->neighbours = neighbours;
+}
 
 int Vertex::getID(){
     return cityID;

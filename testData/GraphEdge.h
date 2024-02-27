@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include "../Pair/Pair.h"
-#include "Vertex.h"
 using namespace std;
 
 class GraphEdge{ 
@@ -25,6 +24,8 @@ int getFrom();
 int getTo();
 
 int getCost();
+
+friend bool operator<(GraphEdge lhs, GraphEdge rhs);
 
 };
 

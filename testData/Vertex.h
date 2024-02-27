@@ -16,13 +16,12 @@ PriorityQueue<GraphEdge> neighbours;
 public:
 Vertex(int cityID, string cityName, PriorityQueue<GraphEdge> neighbours);
 
-Vertex();
 
-int setID(int cityID);
+void setID(int cityID);
 
-string setName(string cityName);
+void setName(string cityName);
 
-PriorityQueue<GraphEdge> setNeighbours(PriorityQueue<GraphEdge> neighbours);
+void setNeighbours(PriorityQueue<GraphEdge> neighbours);
 
 int getID();
 
@@ -32,5 +31,5 @@ PriorityQueue<GraphEdge> getNeighbours();
 
 };
 
-#include "GraphEdge.cpp"
+#include "Vertex.cpp"
 #endif

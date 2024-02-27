@@ -7,12 +7,16 @@ GraphEdge::GraphEdge(int cityID, Pair<int, int> cityPair){
     this->cityPair = cityPair;
 }
 
-void GraphEdge::setFrom(int cityID){}
+void GraphEdge::setFrom(int cityID){
+    this->cityID = cityID;
+}
 
-void GraphEdge::setPair(Pair<int, int>){}
+void GraphEdge::setPair(Pair<int, int> pair){
+    this->cityPair = pair;
+}
 
 int GraphEdge::getFrom(){
-    return cityID;
+    return this->cityID;
 }
 
 int GraphEdge::getTo(){
@@ -21,4 +25,8 @@ int GraphEdge::getTo(){
 
 int GraphEdge::getCost(){
     return this->cityPair.getSecond();
+}
+
+bool operator<(GraphEdge lhs, GraphEdge rhs) {
+    return lhs.getCost() < rhs.getCost();
 }

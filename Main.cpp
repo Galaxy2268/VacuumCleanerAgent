@@ -7,12 +7,17 @@
 #include "Map/Map.h"
 #include "List/ListEl.h"
 #include "testData/GraphEdge.h"
+#include "testData/Vertex.h"
 
 using namespace std;
 
 //Main function
 int main(){
 
-List<GraphEdge> hello;
+
+    Pair<int, int> hi;
+    GraphEdge(1, hi);
+    List<Vertex> el;
+
 
 }
