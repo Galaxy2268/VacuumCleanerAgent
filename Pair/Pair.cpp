@@ -8,6 +8,9 @@ Pair<T1,T2>::Pair(T1 first, T2 second){
 }
 
 template <typename T1, typename T2>
+Pair<T1,T2>::Pair(){}
+
+template <typename T1, typename T2>
 T1 Pair<T1,T2>::getFirst(){
     return this->first;
 }
