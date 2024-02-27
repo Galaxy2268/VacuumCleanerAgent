@@ -15,7 +15,4 @@ int main(){
 
 List<GraphEdge> hello;
 
-    Pair<int, int> hi;
-
-
 }
