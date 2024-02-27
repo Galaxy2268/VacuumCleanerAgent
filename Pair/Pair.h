@@ -12,6 +12,8 @@ T2 second;
 public:
 Pair(T1 first, T2 second);
 
+Pair();
+
 T1 getFirst();
 
 T2 getSecond();

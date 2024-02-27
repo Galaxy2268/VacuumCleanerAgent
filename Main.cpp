@@ -29,4 +29,7 @@ int main(){
     cout << map.get(2);
     map.clear();
 
+    Pair<int, int> hi;
+
+
 }
