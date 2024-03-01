@@ -1,23 +1,33 @@
 #include <iostream>
 #include "Vertex.h"
+using namespace std;
 
-Vertex::Vertex(string cityName, PriorityQueue<GraphEdge> edges){
-    this->cityName = cityName;
-    this->edges = edges;
+Vertex::Vertex(int vertexId, string vertexName, PriorityQueue<Edge> vertexNeighbours){
+    this->vertexId = vertexId;
+    this->vertexName = vertexName;
+    this->vertexNeighbours = vertexNeighbours;
 }
 
-void Vertex::setName(int cityID, string cityName){
-    this->cityName = cityName;
+void Vertex::setId(int vertexId){
+    this->vertexId = vertexId;
 }
 
-void Vertex::setEdges(PriorityQueue<GraphEdge> edges){
-    this->edges = edges;
+void Vertex::setName(string vertexName){
+    this->vertexName = vertexName;
+}
+
+void Vertex::setNeighbours(PriorityQueue<Edge> vertexNeighbours){
+    this->vertexNeighbours = vertexNeighbours;
+}
+
+int Vertex::getId(){
+    return this->vertexId;
 }
 
 string Vertex::getName(){
-    return this->cityName;
+    return this->vertexName;
 }
 
-PriorityQueue<GraphEdge> Vertex::getEdges(){
-    return this->edges;
+PriorityQueue<Edge> Vertex::getNeighbours(){
+    return this->vertexNeighbours;
 }

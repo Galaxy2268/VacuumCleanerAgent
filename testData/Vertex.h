@@ -2,27 +2,31 @@
 #define VERTEX_H
 
 #include <iostream>
+#include "Edge.h"
 #include "../PriorityQueue/PriorityQueue.h"
-#include "GraphEdge.h"
 using namespace std;
 
 class Vertex{
 
 private:
-string cityName;
-PriorityQueue<GraphEdge> edges;
+    int vertexId;
+    string vertexName;
+    PriorityQueue<Edge> vertexNeighbours;
 
 public:
-Vertex(string cityName, PriorityQueue<GraphEdge> edges);
+    Vertex(int vertexId, string vertexName, PriorityQueue<Edge> vertexNeighbours);
 
-void setName(int cityID, string cityName);
+    void setId(int vertexId);
 
-void setEdges(PriorityQueue<GraphEdge> edges);
+    void setName(string vertexName);
 
-string getName();
+    void setNeighbours(PriorityQueue<Edge> vertexNeighbours);
 
-PriorityQueue<GraphEdge> getEdges();
+    int getId();
 
+    string getName();
+
+    PriorityQueue<Edge> getNeighbours();
 };
 
 #include "Vertex.cpp"

@@ -6,8 +6,9 @@
 #include "PriorityQueue/PriorityQueue.h"
 #include "Map/Map.h"
 #include "List/ListEl.h"
-#include "testData/GraphEdge.h"
+#include "testData/Edge.h"
 #include "testData/Vertex.h"
+#include "testData/GraphEdges.h"
 
 using namespace std;
 
@@ -15,10 +16,7 @@ using namespace std;
 int main(){
 
 
-    Pair<int, int> hi;
-    GraphEdge(1, hi);
-    List<Vertex> el;
-    cout << "hi";
+cout << "Hello";
 
 
 }
