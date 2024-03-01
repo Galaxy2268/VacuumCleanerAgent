@@ -8,13 +8,17 @@
 #include "List/ListEl.h"
 #include "testData/GraphEdge.h"
 #include "testData/Vertex.h"
-#include "testData/FileReader.h"
 
 using namespace std;
 
 //Main function
 int main(){
 
-cout << "Hello";
+
+    Pair<int, int> hi;
+    GraphEdge(1, hi);
+    List<Vertex> el;
+    cout << "hi";
+
 
 }

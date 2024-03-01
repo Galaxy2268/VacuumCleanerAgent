@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
+=======
+<module classpath="CMake" type="CPP_MODULE" version="4" />
+>>>>>>> b6ecf9491172ffd8371b4454bf24e3cf3cc99bf4
