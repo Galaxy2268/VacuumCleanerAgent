@@ -1,32 +1,35 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "..GraphEdge/GraphEdge.h"
-#include "..Vertex/Vertex.h"
+#include "GraphEdge.h"
+#include "Vertex.h"
 #include "../List/List.h"
 #include "../Pair/Pair.h"
 #include "../PriorityQueue/PriorityQueue.h"
 using namespace std;
 
-void fileReader(fstream MyFile){
+void fileReader(ifstream MyFile, List<Vertex> allVertexes){
 
-List<GraphEdge> graphs;
+Vertex vertexes;
 
-MyFile.open("MapOfRomania.txt");
+MyFile.open();
+if (MyFile.is_open()){
+    int cityID; string cityName;
+    while (MyFile >> cityID >> cityName){
+        allVertexes.add(vertexes(cityName));
 
-int cityID, cost; 
-string cityName;
-
-if(MyFile.is_open()){
-    while(MyFile >> cityID >> cityName){
-        Vertex.setID(cityID); Vertex.setName(cityName);
     }
-    while(MyFile >> cityID >> Pair<cityID, cost>){
-        GraphEdge.setFrom(); GrapgEdge.setPair(); Vertex.setNeigbours();
+    GraphEdge edges; int cost; Pair<int, int> edge;
+    while (MyFile >> cityID >> cityID >> cost){
+        edges.setPair(cityID, cost);
+        vertexes.setEdges(edges);
+        allVertexes.add(vertexes(edges));
     }
     MyFile.close();
 } else {
     cout<< "Error opening file";
 }
+
+return allVertexes;
 
 }

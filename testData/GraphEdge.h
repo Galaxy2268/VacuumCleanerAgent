@@ -8,24 +8,18 @@ using namespace std;
 class GraphEdge{ 
 
 private:
-int cityID;
-int cost;
-Pair<int, int> cityPair;
+Pair<int, int> edge;
 
 public:
-GraphEdge(int cityID, Pair<int, int> cityPair);
+GraphEdge(Pair<int, int> edge);
 
-void setFrom(int cityID);
-
-void setPair(Pair<int, int>);
-
-int getFrom();
+void setPair(Pair<int, int> edge);
 
 int getTo();
 
 int getCost();
 
-friend bool operator<(GraphEdge lhs, GraphEdge rhs);
+Pair<int, int> getPair();
 
 };
 
