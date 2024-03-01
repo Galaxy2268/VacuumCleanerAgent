@@ -1,3 +1,0 @@
-D:/VacumCleanerAgent/cmake-build-debug/CMakeFiles/VacumCleanerAgent.dir
-D:/VacumCleanerAgent/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/VacumCleanerAgent/cmake-build-debug/CMakeFiles/rebuild_cache.dir
