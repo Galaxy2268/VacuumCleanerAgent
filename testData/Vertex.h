@@ -9,25 +9,19 @@ using namespace std;
 class Vertex{
 
 private:
-int cityID;
 string cityName;
-PriorityQueue<GraphEdge> neighbours;
+PriorityQueue<GraphEdge> edges;
 
 public:
-Vertex(int cityID, string cityName, PriorityQueue<GraphEdge> neighbours);
+Vertex(string cityName, PriorityQueue<GraphEdge> edges);
 
+void setName(int cityID, string cityName);
 
-void setID(int cityID);
-
-void setName(string cityName);
-
-void setNeighbours(PriorityQueue<GraphEdge> neighbours);
-
-int getID();
+void setEdges(PriorityQueue<GraphEdge> edges);
 
 string getName();
 
-PriorityQueue<GraphEdge> getNeighbours();
+PriorityQueue<GraphEdge> getEdges();
 
 };
 
