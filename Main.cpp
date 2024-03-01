@@ -18,6 +18,7 @@ int main(){
     Pair<int, int> hi;
     GraphEdge(1, hi);
     List<Vertex> el;
+    cout << "hi";
 
 
 }
