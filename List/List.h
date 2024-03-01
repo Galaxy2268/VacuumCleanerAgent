@@ -8,7 +8,7 @@ class List{
 private:
 ListEl<T> * head;
 ListEl<T> * tail;
-int length;
+int length{};
 
 
 void searchDeleteBack(int id);
