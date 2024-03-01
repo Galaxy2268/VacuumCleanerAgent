@@ -1,3 +1,0 @@
-C:/Users/krist/GitHub/VacumCleanerAgent/cmake-build-debug/CMakeFiles/VacumCleanerAgent.dir
-C:/Users/krist/GitHub/VacumCleanerAgent/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/krist/GitHub/VacumCleanerAgent/cmake-build-debug/CMakeFiles/rebuild_cache.dir
