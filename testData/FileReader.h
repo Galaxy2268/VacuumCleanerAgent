@@ -10,7 +10,7 @@ using namespace std;
 
 void fileReader(ifstream MyFile, List<Vertex> allVertexes){
 
-Vertex vertexes;
+Vertex vertexes(string cityName, PriorityQueue<GraphEdge> edges);
 
 MyFile.open();
 if (MyFile.is_open()){

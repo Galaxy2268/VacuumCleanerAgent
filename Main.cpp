@@ -15,8 +15,6 @@ using namespace std;
 //Main function
 int main(){
 
-ifstream MyFile;
-List<Vertex> allVertexes;
-fileReader(MyFile, allVertexes);
-cout << allVertexes;
+cout << "Hello";
+
 }

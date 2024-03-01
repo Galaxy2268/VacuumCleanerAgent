@@ -9,7 +9,6 @@ using namespace std;
 class Vertex{
 
 private:
-int cityID;
 string cityName;
 PriorityQueue<GraphEdge> edges;
 
