@@ -14,13 +14,15 @@ private:
     PriorityQueue<Edge> vertexNeighbours;
 
 public:
-    Vertex(int vertexId, string vertexName, PriorityQueue<Edge> vertexNeighbours);
+    Vertex(int vertexId, string vertexName);
+
+    Vertex(int vertexId, PriorityQueue<Edge> vertexNeighbours);
 
     void setId(int vertexId);
 
     void setName(string vertexName);
 
-    void setNeighbours(PriorityQueue<Edge> vertexNeighbours);
+    void addNeighbour(Edge neighbour);
 
     int getId();
 
@@ -29,5 +31,4 @@ public:
     PriorityQueue<Edge> getNeighbours();
 };
 
-#include "Vertex.cpp"
 #endif

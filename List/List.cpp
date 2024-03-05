@@ -99,7 +99,7 @@ ListEl<T> * List<T>::merge(ListEl<T> *first, ListEl<T> *second){
     if (second == nullptr) 
         return first; 
  
-    if (first->getData() < second->getData()) { 
+    if (static_cast<Edge>(first->getData()) < second->getData()) {
         first->setNext(merge(first->getNext(),second));
         first->getNext()->setPrev(first); 
         first->setPrev(nullptr);

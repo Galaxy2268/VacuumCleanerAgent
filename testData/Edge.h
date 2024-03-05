@@ -7,22 +7,28 @@ using namespace std;
 class Edge{
 
 private:
-    int vertexTo;
+    int source;
+    int destination;
     int cost;
 
 public:
-    Edge(int vertexTo, int cost);
+    Edge(int source, int destination, int cost);
 
-    void setTo(int vertexTo);
+    Edge (int destination, int cost);
+
+    void setSource(int source);
+
+    void setDestination(int destination);
 
     void setCost(int cost);
 
-    int getTo();
+    int getSource();
+
+    int getDestination();
 
     int getCost();
 
     friend bool operator<(Edge lhs, Edge rhs);
 };
 
-#include "Edge.cpp"
 #endif
