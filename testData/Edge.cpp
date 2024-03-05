@@ -37,6 +37,14 @@ int Edge::getCost(){
     return this->cost;
 }
 
-bool operator<(Edge lhs, Edge rhs){
-    return lhs.getCost() < rhs.getCost();
+bool operator<(Edge edge1, Edge edge2){
+    return edge1.getCost() < edge2.getCost();
+}
+
+bool operator<=(Edge edge1, Edge edge2) {
+    return edge1.getCost() <= edge2.getCost();
+}
+
+bool operator>=(Edge edge1, Edge edge2) {
+    return edge1.getCost() >= edge2.getCost();
 }

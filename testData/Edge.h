@@ -28,7 +28,11 @@ public:
 
     int getCost();
 
-    friend bool operator<(Edge lhs, Edge rhs);
+    friend bool operator<(Edge edge1, Edge edge2);
+
+    friend bool operator<=(Edge edge1, Edge edge2);
+
+    friend bool operator>=(Edge edge1, Edge edge2);
 };
 
 #endif
