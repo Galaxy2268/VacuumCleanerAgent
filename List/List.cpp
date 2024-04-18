@@ -144,12 +144,10 @@ ListEl<T> * List<T>::mergeSort(ListEl<T> * head){
 
 
 template <typename T>
-template <typename... Args>
-List<T>::List(Args... data){
+List<T>::List(){
     this->length = 0;
     this->head = nullptr;
     this->tail = nullptr;
-    (this->addBack(data), ...);
 }
 
 
@@ -247,7 +245,6 @@ int List<T>::getIdOf(T data){
     }
     return index;
 
-
 }
 
 
@@ -274,6 +271,25 @@ T List<T>::getElById(int index){
     }
 
 }
+
+template <typename T>
+bool List<T>::exists(T data) {
+    if(this->isEmpty()){
+        return false;
+    }
+    ListEl<T> * current = this->head;
+    int index = 0;
+    while(current->getData() != data){
+        if(current->getNext() == nullptr){
+            return false;
+        }
+        current = current->getNext();
+        index++;
+    }
+    return true;
+
+}
+
 
 template <typename T>
 T& List<T>::getReferenceById(int index){
@@ -326,7 +342,7 @@ int List<T>::size(){
 template <typename T>
 void List<T>::addBack(T data){
     ListEl<T> * newNode  = new ListEl<T>(data);
-    newNode->setPrev(tail);
+    newNode->setPrev(this->tail);
     if(this->isEmpty()){
         this->head = newNode;
     }else{
@@ -341,7 +357,7 @@ void List<T>::addBack(T data){
 template <typename T>
 void List<T>::addFront(T data){
     ListEl<T> * newNode  = new ListEl<T>(data);
-    newNode->setNext(head);
+    newNode->setNext(this->head);
     if(this->isEmpty()){
         this->tail = newNode;
     }else{

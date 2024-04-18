@@ -9,6 +9,7 @@
 #include "Graph/Edge.h"
 #include "Graph/Vertex.h"
 #include "Graph/Graph.h"
+#include "Stack/Stack.h"
 
 
 
@@ -19,7 +20,6 @@ int main(){
     Graph graph;
     graph.setGraph("../graph.txt");
     graph.print();
-
 
 
 }

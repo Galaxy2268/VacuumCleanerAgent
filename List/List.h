@@ -23,8 +23,8 @@ ListEl<T> * mergeSort(ListEl<T> * head);
 
 public:
 
-template <typename... Args>
-List(Args... data);
+
+List();
 
 ~List();
 
@@ -40,6 +40,8 @@ void reverse();
 int getIdOf(T data);
 
 T getElById(int index);
+
+bool exists(T data);
 
 T& getReferenceById(int index);
 

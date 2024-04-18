@@ -6,19 +6,19 @@
 #include "../Graph/Vertex.h"
 #include "../Graph/Edge.h"
 
-inline List<Vertex*>* graphEdges(string filename){
+ List<Vertex*>* graphEdges(string filename){
 
-    Pair<List<Vertex*>*, List<Edge>*> pair = fileReader(filename);
+    Pair<List<Vertex*>*, List<Edge*>*> pair = fileReader(filename);
 
     List<Vertex*>* vertexes = pair.getFirst();
-    List<Edge>* edges = pair.getSecond();
+    List<Edge*>* edges = pair.getSecond();
 
     int j = 0;
     for (int i = 0; i < edges->size(); i++) {
-        if (edges->getElById(i).getSource() != vertexes->getElById(j)->getId()) {
+        if (edges->getElById(i)->getSource() != vertexes->getElById(j)->getId()) {
             j++;
         }
-        vertexes->getElById(j)->addNeighbour(edges->getElById(i));
+        vertexes->getElById(j)->addNeighbour(*edges->getElById(i));
     }
     return vertexes;
 

@@ -5,12 +5,12 @@ template <typename T1, typename T2>
 class Pair{
 
 private:
-T1& first;
-T2& second;
+T1 first;
+T2 second;
 
 
 public:
-Pair(T1& first, T2& second);
+Pair(T1 first, T2 second);
 
 Pair();
 
@@ -19,9 +19,9 @@ T1 getFirst();
 
 T2 getSecond();
 
-void setFirst(T1& first);
+void setFirst(T1 first);
 
-void setSecond(T2& second);
+void setSecond(T2 second);
 
 void print();
 
