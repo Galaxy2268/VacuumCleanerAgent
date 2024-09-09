@@ -163,7 +163,6 @@ List<T>::~List(){
 
 template <typename T>
 void List<T>::clear(){
-    ListEl<T> * current = this->head;
     int size = this->size();
     if(!this->isEmpty()){
         for(int i = 0; i < size; i++){
@@ -205,7 +204,7 @@ void List<T>::reverse(){
 
 template <typename T>
 void List<T>::addSortedBack(T data){
-    if(this->size() <= 1 || data >= this->tail->getData()){
+    if(this->size() < 1 || data >= this->tail->getData()){
         this->addBack(data);
         return;
     }
@@ -225,7 +224,7 @@ void List<T>::addSortedBack(T data){
     current->getNext()->setPrev(newNode);
     current->setNext(newNode);
     this->length++;
-    
+
 
 
 }
