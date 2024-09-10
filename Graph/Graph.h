@@ -7,16 +7,20 @@
 
 #include "../List/List.h"
 #include "Vertex.h"
+#include <fstream>
 
 class Graph {
+
 private:
+
     List<Vertex> graph;
+    int vertexCount;
 
 public:
-    Graph(string file);
+
+    Graph(string filename);
 
 };
-
 
 
 #include "Graph.cpp"

@@ -5,8 +5,13 @@
 #include "Vertex.h"
 
 
-Vertex::Vertex(std::string name) {
+Vertex::Vertex(int id, std::string name) {
+    this->id = id;
     this->name = name;
+}
+
+int Vertex::getId() {
+    return this->id;
 }
 
 string Vertex::getName() {
@@ -20,4 +25,3 @@ PriorityQueue<Edge> Vertex::getNeighbours() {
 void Vertex::addNeighbour(Edge neighbour) {
     this->neighbours.push(neighbour);
 }
-

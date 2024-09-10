@@ -11,15 +11,18 @@
 
 class Vertex {
 private:
+    int id;
     string name;
     PriorityQueue<Edge> neighbours;
 
 public:
-    Vertex(string name);
+    Vertex(int id, string name);
 
-    void addNeighbour(Edge neighbour);
+    int getId();
 
     string getName();
+
+    void addNeighbour(Edge neighbour);
 
     PriorityQueue<Edge> getNeighbours();
 };
