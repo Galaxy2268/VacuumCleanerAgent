@@ -16,5 +16,5 @@ using namespace std;
 int main(){
 
 Graph graph("testData/MapOfRomania.txt");
-
+    return 0;
 }
