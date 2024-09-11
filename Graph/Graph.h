@@ -15,6 +15,7 @@ private:
 
     List<Vertex> graph;
     int vertexCount;
+    int edgeCount;
 
 public:
 

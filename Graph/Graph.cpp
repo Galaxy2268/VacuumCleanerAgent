@@ -18,7 +18,7 @@ fstream file;
         throw runtime_error("Error opening file");
     }
 
-        file >> this->vertexCount;
+        file >> this->vertexCount >> this->edgeCount;
 
         for (int i = 0; i < this->vertexCount; i++)   {
             file >> vertexName;
@@ -26,17 +26,16 @@ fstream file;
             this->graph.addBack(vertex);
         }
 
-
-        for (int i = 0; i < this->vertexCount;)  {
+        int j = 0;
+        for (int i = 0; i <= this->edgeCount; i++)  {
             file >> from >> to >> cost;
-            if (from = this->graph.getElById(i).getId())    {
-                Edge edge(from, to, cost);
-                this->graph.getElById(i).addNeighbour(edge);
+            if (from == this->graph.getElById(j).getId())    {
+                Edge* edge = new Edge(from, to, cost);
+                this->graph.getElById(j).addNeighbour(edge);
+            } else{
+                j++;
             }
 
-            else {
-                i++;
-            }
         }
 
 
