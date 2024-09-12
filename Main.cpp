@@ -15,9 +15,14 @@ using namespace std;
 //Main function
 int main(){
 
+<<<<<<< HEAD
 cout<< "Hello";
 
 FileReader read_graph("testData/MapOfRomania.txt");
 cout << read_graph.getGraph();
 
+=======
+Graph graph("testData/MapOfRomania.txt");
+    return 0;
+>>>>>>> 9168e408c5de3ada5ca426ac9d959b101d686408
 }

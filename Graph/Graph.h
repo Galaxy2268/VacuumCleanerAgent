@@ -14,7 +14,10 @@ class Graph {
 private:
     int vertexCount;
     int edgeCount;
+<<<<<<< HEAD
     List<Vertex> graph;
+=======
+>>>>>>> 9168e408c5de3ada5ca426ac9d959b101d686408
 
 public:
 
