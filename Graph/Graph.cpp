@@ -4,59 +4,24 @@
 
 #include "Graph.h"
 
-Graph::Graph(string filename) {
-
-string vertexName;
-int from, to, cost;
-
-fstream file;
-
-
-    file.open(filename);
-
-    if (!file.is_open())  {
-        throw runtime_error("Error opening file");
-    }
-
-        file >> this->vertexCount;
-
-        for (int i = 0; i < this->vertexCount; i++)   {
-            file >> vertexName;
-            Vertex vertex(i, vertexName);
-            this->graph.addBack(vertex);
-        }
-
-
-        for (int i = 0; i < this->vertexCount;)  {
-            file >> from >> to >> cost;
-            if (from = this->graph.getElById(i).getId())    {
-                Edge edge(from, to, cost);
-                this->graph.getElById(i).addNeighbour(edge);
-            }
-
-            else {
-                i++;
-            }
-        }
-
-
-    file.close();
-
+Graph::Graph(int vertexCount)   {
+    this->vertexCount = vertexCount;
 }
 
-
-
-/*
-
-Graph::printGraph() {
-
-    for(int i = 0; i < vertex_count; i++)   {
-        cout << this->graph.getElById(i).getName();
-        cout << " -> ";
-        cout << << this->graph.getElById(i).getNeighbours().getTo().getName();
-        cout << " = ";
-        cout << this->graph.getElById(i).getNeighbours().getCost()
-    }
+Graph::addVertex(int id, string name)   {
+    Vertex vertex(id, name);
+    this->graph.add(vertex);
 }
 
-*/
+Graph::addEdge(int from, int to, int cost)  {
+    Edge edge(from, to, cost);
+    this->graph.getElById(from).addNeighbour(edge);
+}
+
+int Graph::getVertexCount() {
+    return this->vertexCount;
+}
+
+int Graph::getEdgeCount()   {
+    return this->edgeCount;
+}

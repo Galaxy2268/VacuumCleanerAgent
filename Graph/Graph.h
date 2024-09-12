@@ -12,16 +12,23 @@
 class Graph {
 
 private:
-
-    List<Vertex> graph;
     int vertexCount;
+    int edgeCount;
+    List<Vertex> graph;
 
 public:
 
-    Graph(string filename);
+    Graph(int vertexCount);
+
+    void addVertex(int id, string name);
+
+    void addEdge(int from, int to, int cost);
+
+    int getVertexCount();
+
+    int getEdgeCount();
 
 };
-
 
 #include "Graph.cpp"
 #endif //VACUMCLEANERAGENT_GRAPH_H

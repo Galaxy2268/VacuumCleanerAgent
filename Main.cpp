@@ -8,13 +8,16 @@
 #include "List/ListEl.h"
 #include "Graph/Edge.h"
 #include "Graph/Vertex.h"
-#include "Graph/Graph.h"
+#include "Graph/FileReader.h"
 
 using namespace std;
 
 //Main function
 int main(){
 
-Graph graph("testData/MapOfRomania.txt");
+cout<< "Hello";
+
+FileReader read_graph("testData/MapOfRomania.txt");
+cout << read_graph.getGraph();
 
 }
