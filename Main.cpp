@@ -18,7 +18,7 @@ int main() {
     GraphBuilder graphBuilder;
 
     Graph graph = graphBuilder
-            .readFile("Somefile")
+            .readFile("testdata/MapOfRomania.txt")
             .build();
 
     return 0;
