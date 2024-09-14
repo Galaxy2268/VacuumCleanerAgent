@@ -1,26 +1,24 @@
-20
-
+20 46
 Oradea
 Zerind
-Arad 
-Timisoara 
-Lugoj 
-Mehadia 
-Drobeta 
-Sibiu 
-Rimnicu_Vilcea 
-Craiova 
-Fagaras 
-Pitesti 
-Bucharest 
-Giurgiu 
-Neamt 
-Iasi 
+Arad
+Timisoara
+Lugoj
+Mehadia
+Drobeta
+Sibiu
+Rimnicu_Vilcea
+Craiova
+Fagaras
+Pitesti
+Bucharest
+Giurgiu
+Neamt
+Iasi
 Vaslui
-Urziceni 
-Hirsova 
+Urziceni
+Hirsova
 Eforie
-
 0 1 71
 0 7 151
 1 0 71

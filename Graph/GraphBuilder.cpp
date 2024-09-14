@@ -8,7 +8,7 @@ GraphBuilder::GraphBuilder() {
     this->fileName = "";
 }
 
-GraphBuilder GraphBuilder::readFile(std::string fileName) {
+GraphBuilder& GraphBuilder::readFile(std::string fileName) {
     this->fileName = fileName;
     return *this;
 }
@@ -18,7 +18,6 @@ Graph GraphBuilder::build() {
     if(!this->fileName.empty()){
         
         fstream file;
-        int id;
         string name;
         int from, to, cost;
 
@@ -34,8 +33,8 @@ Graph GraphBuilder::build() {
             file >> vertexCount >> edgeCount;
 
             for (int i = 0; i < vertexCount; i++)   {
-                file >> id >> name;
-                graph.addVertex(id, name);
+                file >> name;
+                graph.addVertex(i, name);
             }
 
             for (int i = 0; i < edgeCount; i++) {

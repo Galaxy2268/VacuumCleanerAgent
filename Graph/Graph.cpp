@@ -18,7 +18,7 @@ void Graph::addVertex(int id, string name)   {
 
 void Graph::addEdge(int from, int to, int cost)  {
     Edge edge(from, to, cost);
-    this->graph.getElById(from).addNeighbour(edge);
+    this->graph.getReferenceById(from).addNeighbour(edge);
     this->edgeCount++;
 }
 

@@ -14,7 +14,7 @@ private:
 public:
     GraphBuilder();
 
-    GraphBuilder readFile(string fileName);
+    GraphBuilder& readFile(string fileName);
 
     Graph build();
 
