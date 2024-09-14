@@ -12,6 +12,8 @@ int main() {
             .readFile("testdata/MapOfRomania.txt")
             .build();
 
+    graph.print();
+
     return 0;
 
 

@@ -70,3 +70,8 @@ T PriorityQueue<T>::pop(){
   return data;
   
 }
+
+template<class T>
+T PriorityQueue<T>::getElById(int id) {
+    return this->priorityQ.getElById(id);
+}

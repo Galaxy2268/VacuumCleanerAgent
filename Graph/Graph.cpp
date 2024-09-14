@@ -6,7 +6,10 @@
 #include "Graph.h"
 
 
-Graph::Graph(){}
+Graph::Graph(){
+    this->edgeCount = 0;
+    this->vertexCount = 0;
+}
 
 
 void Graph::addVertex(int id, string name)   {
@@ -28,4 +31,18 @@ int Graph::getVertexCount() {
 
 int Graph::getEdgeCount()   {
     return this->edgeCount;
+}
+
+void Graph::print() {
+    if(this->graph.isEmpty()) return;
+
+    for(int i = 0; i < this->graph.size(); i++){
+        cout << this->graph.getElById(i).getId();
+        cout << " ||";
+        for(int j = 0; j < this->graph.getElById(i).getNeighbours().size(); j++){
+            cout << " -> ";
+            cout << this->graph.getElById(i).getNeighbours().getElById(j).getTo();
+        }
+        cout << "\n";
+    }
 }

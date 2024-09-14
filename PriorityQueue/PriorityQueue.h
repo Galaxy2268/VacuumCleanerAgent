@@ -33,6 +33,8 @@ void push(T data);
 
 T pop();
 
+T getElById(int id);
+
 };
 
   

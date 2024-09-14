@@ -29,6 +29,8 @@ public:
 
     int getEdgeCount();
 
+    void print();
+
 };
 
 #include "Graph.cpp"
