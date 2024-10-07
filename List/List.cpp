@@ -4,7 +4,20 @@
 
 using namespace std;
 
+/*
+Description:
+ Palīg funkcija, kura meklē elementu, izmantojot indeksu, no saraksta gala, lai izdzēstu to.
+ Helper function which searches element by id from end of the list to delete it.
 
+Complexety:
+ Labākajā gadijumā - O(1)
+ Sliktākajā gadijumā - O(n)
+ Atkarībā no elementa atrašanas vietas.
+
+ In best case - O(1)
+ In worst case - O(n)
+ Depends on element id.
+*/
 template<typename T>
 void List<T>::searchDeleteBack(int id){
     ListEl<T> * current = this->tail;
