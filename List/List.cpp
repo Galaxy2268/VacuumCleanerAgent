@@ -300,11 +300,17 @@ T& List<T>::getReferenceById(int id){
 
 template <typename T>
 T List<T>::getFirst(){
+    if(this->isEmpty()){
+        throw out_of_range("List is empty");
+    }
     return this->head->getData();
 }
 
 template <typename T>
 T List<T>::getLast(){
+    if(this->isEmpty()){
+        throw out_of_range("List is empty");
+    }
     return this->tail->getData();
 }
 
