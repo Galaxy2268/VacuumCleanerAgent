@@ -251,21 +251,21 @@ int List<T>::getIdOf(T data){
 
 
 template <typename T>
-T List<T>::getElById(int index){
-    if(index < 0 || index > size() - 1 || isEmpty()){
+T List<T>::getElById(int id){
+    if(id < 0 || id > size() - 1 || isEmpty()){
         throw out_of_range("Index out of bounds");
     }
 
 
-    if(this->size() / 2 < index){
+    if(this->size() / 2 < id){
         ListEl<T> * current = this->tail;
-        for(int i = this->size() - 1; i > index; i--){
+        for(int i = this->size() - 1; i > id; i--){
             current = current->getPrev();
         }
         return current->getData();
     }else{
         ListEl<T> * current = this->head;
-        for(int i = 0; i < index; i++){
+        for(int i = 0; i < id; i++){
             current = current->getNext();
             
         }
@@ -275,21 +275,21 @@ T List<T>::getElById(int index){
 }
 
 template <typename T>
-T& List<T>::getReferenceById(int index){
-    if(index < 0 || index > size() - 1 || isEmpty()){
+T& List<T>::getReferenceById(int id){
+    if(id < 0 || id > size() - 1 || isEmpty()){
         throw out_of_range("Index out of bounds");
     }
 
 
-    if(this->size() / 2 < index){
+    if(this->size() / 2 < id){
         ListEl<T> * current = this->tail;
-        for(int i = this->size() - 1; i > index; i--){
+        for(int i = this->size() - 1; i > id; i--){
             current = current->getPrev();
         }
         return current->getReference();
     }else{
         ListEl<T> * current = this->head;
-        for(int i = 0; i < index; i++){
+        for(int i = 0; i < id; i++){
             current = current->getNext();
             
         }
