@@ -12,80 +12,57 @@ private:
 
     /*
     Description:
-     Palīg metode, kura meklē elementu, izmantojot indeksu, no saraksta gala, lai izdzēstu to.
-
-     Helper method which searches element by id from end of the list to delete it.
-
+        Helper method which searches element by id from end of the list to delete it.
+        Palīg metode, kura meklē elementu, izmantojot indeksu, no saraksta gala, lai izdzēstu to.
     Complexity:
-     Labākajā gadijumā - O(1)
-     Sliktākajā gadijumā - O(n)
-     Atkarībā no elementa atrašanas vietas.
-
-     In best case - O(1)
-     In worst case - O(n)
-     Depends on where element is placed.
+        Best case: O(1) | Worst case: O(n) | Depends on where element is placed.
+        Labākajā gadijumā: O(1) | Sliktākajā gadijumā: O(n) | Atkarībā no elementa atrašanas vietas.
      */
     void searchDeleteBack(int id);
 
 
     /*
     Description:
-     Palīg metode, kura meklē elementu, izmantojot indeksu, no saraksta sākuma, lai izdzēstu to.
-
-     Helper method, which searches element by id from start of the list to delete it.
-
+        Helper method, which searches element by id from start of the list to delete it.
+        Palīg metode, kura meklē elementu, izmantojot indeksu, no saraksta sākuma, lai izdzēstu to.
     Complexity:
-     Labākajā gadijumā - O(1)
-     Sliktākajā gadijumā - O(n)
-     Atkarībā no elementa atrašanas vietas.
-
-     In best case - O(1)
-     In worst case - O(n)
-     Depends on where element is placed.
+        Best case: O(1) | Worst case: O(n) | Depends on where element is placed.
+        Labākajā gadijumā: O(1) | Sliktākajā gadijumā: O(n) | Atkarībā no elementa atrašanas vietas.
     */
     void searchDeleteFront(int id);
 
 
     /*
     Description:
-     Metode, kura sadala sarakstu divās daļās, atgriežot rādītāju, kurš norāda uz saraksta vidus elementu.
-
-     Method that splits list by returning pointer which points to the list middle element.
+        Method that splits list by returning pointer which points to the list middle element.
+        Metode, kura sadala sarakstu divās daļās, atgriežot rādītāju, kurš norāda uz saraksta vidus elementu.
     */
     ListEl<T> * split(ListEl<T> * head);
 
 
     /*
     Description:
-     Rekursīvā metode, kura savieno divas sakārtotās lista daļas.
-
-     Recursive method which merges two sorted lists together.
+        Recursive method which merges two sorted lists together.
+        Rekursīvā metode, kura savieno divas sakārtotās lista daļas.
     */
     ListEl<T> * merge(ListEl<T> *first, ListEl<T> *second);
 
 
     /*
     Description:
-     Rekursīvā metode, kura izmanto split un merge metodes, lai skārtotu sarakstu.
-
-     Recursive method which uses split and merge methods to sort list.
+        Recursive method which uses split and merge methods to sort list.
+        Rekursīvā metode, kura izmanto split un merge metodes, lai skārtotu sarakstu.
     */
     ListEl<T> * mergeSort(ListEl<T> * head);
 
 public:
-
     /*
     Description:
-     Saraksta konstruktors, kurš pieņem dažādu skaitu ar argumentiem un pieliek tos klāt sarakstam
-
-     Constructor of the list which takes variable count of arguments and ads them to the list.
-
+        Constructor of the list which takes variable count of arguments and ads them to the list.
+        Saraksta konstruktors, kurš pieņem dažādu skaitu ar argumentiem un pieliek tos klāt sarakstam
     Complexity:
-     Vienmēr - O(n)
-     Lineārā sarežģītība.
-
-     In every case - O(n)
-     Linear complexity.
+        Always: O(n) | Linear complexity.
+        Vienmēr: O(n) | Lineārā sarežģītība.
     */
     template <typename... Args>
     List(Args... data);
@@ -93,122 +70,77 @@ public:
 
     /*
     Description:
-     Saraksta destruktors, kurš atbrīvo aizņemto atmiņu ar saraksta elementiem, izmanto clear metodi.
-
-     Destructor of the list which deallocates memory taken by list elements, uses clear method.
-
+        Destructor of the list which deallocates memory taken by list elements, uses clear method.
+        Saraksta destruktors, kurš atbrīvo aizņemto atmiņu ar saraksta elementiem, izmanto clear metodi.
     Complexity:
-     Vienmēr - O(n)
-     Lineārā sarežģītība.
-
-     In every case - O(n)
-     Linear complexity.
+        Vienmēr: O(n) | Lineārā sarežģītība.
+        Always: O(n) | Linear complexity.
     */
     ~List();
 
 
     /*
     Description:
-     Metode, kura ir pieejama publiski, saraksta sakārtošanai, izmanto mergeSort, lai sakārtotu sarakstu.
-
-     Method which is public for list sorting and uses mergeSort.
-
+        Method which is public for list sorting and uses mergeSort.
+        Metode, kura ir pieejama publiski, saraksta sakārtošanai, izmanto mergeSort, lai sakārtotu sarakstu.
     Complexity:
-     Vienmēr - O(n log n)
-     Logaritmiska sarežģītība.
-
-     In every case - O(n log n)
-     Logarithmic complexity.
+        Always: O(n log n) | Logarithmic complexity.
+        Vienmēr: O(n log n) | Logaritmiska sarežģītība.
      */
     void sort();
 
 
     /*
     Description:
-     Metode, kura pieliek elementu no aizmugures, tā lai saraksts paliktu sakārtots.
-     Strādā korekti, ja sarakts ir tukšs vai jau sakārtots.
-
-     Method which ads element from the end of the list in way to save list being sorted.
-     Works correctly if list is empty, or list is already sorted.
-
+        Method which ads element from the end of the list in way to save list being sorted. Works correctly if list is empty, or list is already sorted.
+        Metode, kura pieliek elementu no aizmugures, tā lai saraksts paliktu sakārtots. Strādā korekti, ja sarakts ir tukšs vai jau sakārtots.
     Complexity:
-     Labākajā gadijumā - O(1)
-     Sliktākajā gadijumā - O(n)
-     Atkarībā no tā, kur elementam ir jāatrodas.
-
-     In best case - O(1)
-     In worst case - O(n)
-     Depends on where element has to be.
+        Best case: O(1) | Worst case: O(n) | Depends on where element has to be.
+        Labākajā gadijumā: O(1) | Sliktākajā gadijumā: O(n) | Atkarībā no tā, kur elementam ir jāatrodas.
     */
     void addSortedBack(T data);
 
 
     /*
     Description:
-     Metode, kura atbrīvo aizņemto atmiņu ar saraksta elementiem.
-     Method which deallocates memory taken by list elements.
-
+        Method which deallocates memory taken by list elements.
+        Metode, kura atbrīvo aizņemto atmiņu ar saraksta elementiem.
     Complexity:
-     Vienmēr - O(n)
-     Lineārā sarežģītība.
-
-     In every case - O(n)
-     Linear complexity.
+        Always: O(n) | Linear complexity.
+        Vienmēr: O(n) | Lineārā sarežģītība.
     */
     void clear();
 
 
     /*
     Description:
-     Metode, kura apgriež sarakstu.
-     Method which reverses list.
-
+        Method which reverses list.
+        Metode, kura apgriež sarakstu.
     Complexity:
-     Vienmēr - O(n)
-     Lineārā sarežģītība.
-
-     In every case - O(n)
-     Linear complexity.
+        Always: O(n) | Linear complexity.
+        Vienmēr: O(n) | Lineārā sarežģītība.
     */
     void reverse();
 
 
     /*
     Description:
-     Metode, kura pieņem elementu un atgriež, pirmā atrastā, elementa  indeksu, kurš ir vienāds ar pieņemto elementu.
-     Izmet kļūdu, ja saraksts ir tukšs vai sarakstā nav pieņemtā elementa.
-
-     Method which takes an element and returns the first found element which is equal with taken element.
-     Throws exception if list is empty or taken element was not found.
-
+        Method which takes an element and returns the first found element which is equal with taken element. Throws exception if list is empty or taken element was not found.
+        Metode, kura pieņem elementu un atgriež, pirmā atrastā, elementa  indeksu, kurš ir vienāds ar pieņemto elementu. Izmet kļūdu, ja saraksts ir tukšs vai sarakstā nav pieņemtā elementa.
     Complexity:
-     Labākajā gadijumā - O(1)
-     Sliktākajā gadijumā - O(n)
-     Atkarībā no elementa atrašanās vietas.
-
-     In best case - O(1)
-     In worst case - O(n)
-     Depends where element is located.
+        Best case: O(1) | Worst case: O(n) | Depends where element is located.
+        Labākajā gadijumā: O(1) | Sliktākajā gadijumā: O(n) | Atkarībā no elementa atrašanās vietas.
     */
     int getIdOf(T data);
 
 
     /*
     Description:
-     Metode, kura pieņem indeksu un atgriež, elementu pēc dotā indeksa.
-     Izmet kļūdu, ja indeks ir ārpus saraksta robežām.
-
-     Method which returns element by id.
-     Throws exception if id out of bounds.
-
+        Method which returns element by id. Throws exception if id out of bounds.
+        Metode, kura pieņem indeksu un atgriež, elementu pēc dotā indeksa. Izmet kļūdu, ja indeks ir ārpus saraksta robežām.
     Complexity:
-     Labākajā gadijumā - O(1)
-     Sliktākajā gadijumā - O(n)
-     Atkarībā no elementa atrašanas vietas.
-
-     In best case - O(1)
-     In worst case - O(n)
-     Depends where element is located.
+        Best case: O(1) | Worst case: O(n) | Depends where element is located.
+        Labākajā gadijumā: O(1) | Sliktākajā gadijumā: O(n) | Atkarībā no elementa atrašanas vietas.
     */
     T getElById(int id);
 
@@ -261,8 +193,8 @@ public:
         Method that returns the amount of elements in list.
         Metode, kas atgriež elementu skaitu sarakstā.
     Complexity:
-        Always: O(n) | Linear complexity.
-        Vienmēr: O(n) | Lineārā sarežģītība.
+        Always: O(1)
+        Vienmēr: O(1)
     */
 
     int size();
@@ -291,14 +223,14 @@ public:
 
     /*
     Description:
-        Method that takes an element and an index, then adds the given element to the given index of the list. Throws exception if id is out of bounds.
+        Method that takes an element and an id, then adds the given element to the given id of the list. Throws exception if id is out of bounds.
         Metode, kas saņem elementu un indeksu, un pievieno sarakstam doto elementu pie dotā indeksa. Izmet kļūdu, ja indekss ir ārpus saraksta robežām.
     Complexity:
-        Best case: O(1) | Worst case: O(n/2) | Depends where element is located in list.
-        Labākajā gadījumā: O(1) | Sliktākajā gadījumā: O(n/2) | Atkarīgs no elementa atrašanās vietas sarakstā.
+        Best case: O(1) | Worst case: O(n/2) | Depends on id.
+        Labākajā gadījumā: O(1) | Sliktākajā gadījumā: O(n/2) | Atkarīgs no indeksa.
     */
 
-    void add(T data, int index);
+    void add(T data, int id);
 
     /*
     Description:
@@ -313,8 +245,8 @@ public:
 
     /*
     Description:
-        Method that takes an element and removes the given element from the list.
-        Metode, kas saņem elementu un noņem doto elementu no saraksta.
+        Method that takes an element and removes all the same elements from the list.
+        Metode, kas saņem elementu un noņem visus tādus elementus no saraksta.
     Complexity:
         Best case: O(1) | Worst case: O(n) | Depends where element is located in list.
         Labākajā gadījumā: O(1) | Sliktākajā gadījumā: O(n) | Atkarīgs no elementa atrašanās vietas sarakstā.
@@ -346,20 +278,11 @@ public:
 
     /*
     Description:
-     Metode, kura dzēš elementu pēc tā indeksa.
-     Izmanto palīg metodes - searchDeleteBack un searchDeleteFront, priekš efektīvākas meklēšanas.
-
-     Method which deletes element by that element id.
-     Uses helper methods - searchDeleteBack and searchDeleteFront, for efficient search
-
+        Method which deletes element by that element id. Uses helper methods - searchDeleteBack and searchDeleteFront, for efficient search.
+        Metode, kura dzēš elementu pēc tā indeksa. Izmanto palīg metodes - searchDeleteBack un searchDeleteFront, priekš efektīvākas meklēšanas.
     Complexity:
-     Labākajā gadijumā - O(1)
-     Sliktākajā gadijumā - O(n / 2)
-     Atkarībā no tā, kur elements atrodas.
-
-     In best case - O(1)
-     In worst case - O(n / 2)
-     Depends on where element is in the list.
+        Best case: O(1) | Worst case: O(n / 2) | Depends on where element is in the list.
+        Labākajā gadijumā: O(1) | Sliktākajā gadijumā: O(n / 2) | Atkarībā no tā, kur elements atrodas.
     */
     void removeById(int id);
 

@@ -358,19 +358,19 @@ void List<T>::addFront(T data){
 }
 
 template <typename T>
-void List<T>::add(T data, int index){
-    if(index < 0 || index > size() || isEmpty()){
+void List<T>::add(T data, int id){
+    if(id < 0 || id > size() || isEmpty()){
         throw out_of_range("Index out of bounds");
     }
-    if(index == 0){
+    if(id == 0){
         addFront(data);
-    }else if (index == size()){
+    }else if (id == size()){
         addBack(data);
     }else{
         ListEl<T> * newNode  = new ListEl<T>(data);
-        if(this->size() / 2 < index){
+        if(this->size() / 2 < id){
             ListEl<T> * current = this->tail;
-            for(int i = this->size() - 1; i > index; i--){
+            for(int i = this->size() - 1; i > id; i--){
                 current = current->getPrev();
             }
             newNode->setNext(current);
@@ -380,7 +380,7 @@ void List<T>::add(T data, int index){
             this->length++;
         }else{
             ListEl<T> * current = this->head;
-            for(int i = 0; i < index; i++){
+            for(int i = 0; i < id; i++){
                 current = current->getNext();
             
             }
