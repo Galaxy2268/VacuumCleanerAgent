@@ -139,8 +139,8 @@ public:
         Method which returns element by id. Throws exception if id out of bounds.
         Metode, kura pieņem indeksu un atgriež, elementu pēc dotā indeksa. Izmet kļūdu, ja indeks ir ārpus saraksta robežām.
     Complexity:
-        Best case: O(1) | Worst case: O(n) | Depends where element is located.
-        Labākajā gadijumā: O(1) | Sliktākajā gadijumā: O(n) | Atkarībā no elementa atrašanas vietas.
+        Best case: O(1) | Worst case: O(n / 2) | Depends where element is located.
+        Labākajā gadijumā: O(1) | Sliktākajā gadijumā: O(n / 2) | Atkarībā no elementa atrašanas vietas.
     */
     T getElById(int id);
 
@@ -149,8 +149,8 @@ public:
         Method that returns reference of an element in list by id. Throws exeption if id is out of bounds.
         Metode, kas pieņem indeksu un atgriež atsauci uz elementu sarakstā pēc dotā indeksa. Izmet kļūdu, ja indekss ir ārpus saraksta robežām.
     Complexity:
-        Best case: O(1) | Worst case: O(n) | Depends where element is located in list.
-        Labākajā gadījumā: O(1) | Sliktākajā gadījumā: O(n) | Atkarīgs no elementa atrašanās vietas sarakstā.
+        Best case: O(1) | Worst case: O(n / 2) | Depends where element is located in list.
+        Labākajā gadījumā: O(1) | Sliktākajā gadījumā: O(n / 2) | Atkarīgs no elementa atrašanās vietas sarakstā.
     */
 
     T& getReferenceById(int id);
