@@ -1,6 +1,5 @@
 #include "List.h"
 #include <iostream>
-#include <string>
 
 using namespace std;
 
@@ -149,7 +148,7 @@ List<T>::List(Args... data){
     this->length = 0;
     this->head = nullptr;
     this->tail = nullptr;
-    (this->addBack(data), ...);
+    (this->addLast(data), ...);
 }
 
 
@@ -166,7 +165,7 @@ void List<T>::clear(){
     int size = this->size();
     if(!this->isEmpty()){
         for(int i = 0; i < size; i++){
-            this->removeFront();      
+            this->removeFirst();
         }
     }
     
@@ -203,13 +202,13 @@ void List<T>::reverse(){
 }
 
 template <typename T>
-void List<T>::addSortedBack(T data){
+void List<T>::addSorted(T data){
     if(this->size() < 1 || data >= this->tail->getData()){
-        this->addBack(data);
+        this->addLast(data);
         return;
     }
     if(data <= this->head->getData()){
-        this->addFront(data);
+        this->addFirst(data);
         return;
     }
 
@@ -231,27 +230,7 @@ void List<T>::addSortedBack(T data){
 
 
 template <typename T>
-int List<T>::getIdOf(T data){
-    if(this->isEmpty()){
-        throw out_of_range("List is empty");
-    }
-    ListEl<T> * current = this->head;
-    int index = 0;
-    while(current->getData() != data){
-        if(current->getNext() == nullptr){
-            throw out_of_range("No such an element");
-        }
-        current = current->getNext();
-        index++;
-    }
-    return index;
-
-
-}
-
-
-template <typename T>
-T List<T>::getElById(int id){
+T List<T>::getEl(int id){
     if(id < 0 || id > size() - 1 || isEmpty()){
         throw out_of_range("Index out of bounds");
     }
@@ -275,7 +254,7 @@ T List<T>::getElById(int id){
 }
 
 template <typename T>
-T& List<T>::getReferenceById(int id){
+T& List<T>::getReference(int id){
     if(id < 0 || id > size() - 1 || isEmpty()){
         throw out_of_range("Index out of bounds");
     }
@@ -329,7 +308,7 @@ int List<T>::size(){
 }
 
 template <typename T>
-void List<T>::addBack(T data){
+void List<T>::addLast(T data){
     ListEl<T> * newNode  = new ListEl<T>(data);
     newNode->setPrev(tail);
     if(this->isEmpty()){
@@ -344,7 +323,7 @@ void List<T>::addBack(T data){
 }
 
 template <typename T>
-void List<T>::addFront(T data){
+void List<T>::addFirst(T data){
     ListEl<T> * newNode  = new ListEl<T>(data);
     newNode->setNext(head);
     if(this->isEmpty()){
@@ -358,14 +337,14 @@ void List<T>::addFront(T data){
 }
 
 template <typename T>
-void List<T>::add(T data, int id){
+void List<T>::insert(T data, int id){
     if(id < 0 || id > size() || isEmpty()){
         throw out_of_range("Index out of bounds");
     }
     if(id == 0){
-        addFront(data);
+        addFirst(data);
     }else if (id == size()){
-        addBack(data);
+        addLast(data);
     }else{
         ListEl<T> * newNode  = new ListEl<T>(data);
         if(this->size() / 2 < id){
@@ -455,7 +434,7 @@ void List<T>::remove(T data){
 
 
 template <typename T>
-void List<T>::removeBack(){  
+void List<T>::removeLast(){
     if(this->isEmpty()){
         return;
     }
@@ -475,7 +454,7 @@ void List<T>::removeBack(){
 
 
 template <typename T>
-void List<T>::removeFront(){  
+void List<T>::removeFirst(){
     if(this->isEmpty()){
         return;
     }
@@ -496,7 +475,7 @@ void List<T>::removeFront(){
 
 
 template <typename T>
-void List<T>::removeById(int id){
+void List<T>::removeAt(int id){
     if(this->isEmpty()){
         return;
     }

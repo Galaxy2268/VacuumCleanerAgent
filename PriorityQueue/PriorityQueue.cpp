@@ -54,7 +54,7 @@ T PriorityQueue<T>::peek(){
 
 template <class T>
 void PriorityQueue<T>::push(T data){
-  priorityQ.addSortedBack(data);
+    priorityQ.addSorted(data);
 }
 
 
@@ -65,7 +65,7 @@ T PriorityQueue<T>::pop(){
     throw out_of_range("Priority Queue is empty");
   }
   T data = priorityQ.getFirst();
-  priorityQ.removeFront();
+    priorityQ.removeFirst();
   
   return data;
   
@@ -73,5 +73,5 @@ T PriorityQueue<T>::pop(){
 
 template<class T>
 T PriorityQueue<T>::getElById(int id) {
-    return this->priorityQ.getElById(id);
+    return this->priorityQ.getEl(id);
 }

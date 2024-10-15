@@ -12,8 +12,8 @@ private:
 
     /*
     Description:
-        Helper method which searches element by id from end of the list to delete it.
-        Palīg metode, kura meklē elementu, izmantojot indeksu, no saraksta gala, lai izdzēstu to.
+        Helper method for removeAt() which searches element by id from end of the list to delete it.
+        Palīg metode priekš removeAt(), kura meklē elementu, izmantojot indeksu, no saraksta gala, lai izdzēstu to.
     Complexity:
         Best case: O(1) | Worst case: O(n) | Depends on where element is placed.
         Labākajā gadijumā: O(1) | Sliktākajā gadijumā: O(n) | Atkarībā no elementa atrašanas vietas.
@@ -23,8 +23,8 @@ private:
 
     /*
     Description:
-        Helper method, which searches element by id from start of the list to delete it.
-        Palīg metode, kura meklē elementu, izmantojot indeksu, no saraksta sākuma, lai izdzēstu to.
+        Helper method for removeAt() which searches element by id from start of the list to delete it.
+        Palīg metode priekš removeAt(), kura meklē elementu, izmantojot indeksu, no saraksta sākuma, lai izdzēstu to.
     Complexity:
         Best case: O(1) | Worst case: O(n) | Depends on where element is placed.
         Labākajā gadijumā: O(1) | Sliktākajā gadijumā: O(n) | Atkarībā no elementa atrašanas vietas.
@@ -98,7 +98,7 @@ public:
         Best case: O(1) | Worst case: O(n) | Depends on where element has to be.
         Labākajā gadijumā: O(1) | Sliktākajā gadijumā: O(n) | Atkarībā no tā, kur elementam ir jāatrodas.
     */
-    void addSortedBack(T data);
+    void addSorted(T data);
 
 
     /*
@@ -125,24 +125,13 @@ public:
 
     /*
     Description:
-        Method which takes an element and returns the first found element which is equal with taken element. Throws exception if list is empty or taken element was not found.
-        Metode, kura pieņem elementu un atgriež, pirmā atrastā, elementa  indeksu, kurš ir vienāds ar pieņemto elementu. Izmet kļūdu, ja saraksts ir tukšs vai sarakstā nav pieņemtā elementa.
-    Complexity:
-        Best case: O(1) | Worst case: O(n) | Depends where element is located.
-        Labākajā gadijumā: O(1) | Sliktākajā gadijumā: O(n) | Atkarībā no elementa atrašanās vietas.
-    */
-    int getIdOf(T data);
-
-
-    /*
-    Description:
         Method which returns element by id. Throws exception if id out of bounds.
         Metode, kura pieņem indeksu un atgriež, elementu pēc dotā indeksa. Izmet kļūdu, ja indeks ir ārpus saraksta robežām.
     Complexity:
         Best case: O(1) | Worst case: O(n / 2) | Depends where element is located.
         Labākajā gadijumā: O(1) | Sliktākajā gadijumā: O(n / 2) | Atkarībā no elementa atrašanas vietas.
     */
-    T getElById(int id);
+    T getEl(int id);
 
     /*
     Description:
@@ -153,7 +142,7 @@ public:
         Labākajā gadījumā: O(1) | Sliktākajā gadījumā: O(n / 2) | Atkarīgs no elementa atrašanās vietas sarakstā.
     */
 
-    T& getReferenceById(int id);
+    T& getReference(int id);
 
     /*
     Description:
@@ -208,7 +197,7 @@ public:
         Vienmēr: O(1)
     */
 
-    void addBack(T data);
+    void addLast(T data);
 
     /*
     Description:
@@ -219,7 +208,7 @@ public:
         Vienmēr: O(1)
     */
 
-    void addFront(T data);
+    void addFirst(T data);
 
     /*
     Description:
@@ -230,7 +219,7 @@ public:
         Labākajā gadījumā: O(1) | Sliktākajā gadījumā: O(n/2) | Atkarīgs no indeksa.
     */
 
-    void add(T data, int id);
+    void insert(T data, int id);
 
     /*
     Description:
@@ -263,7 +252,7 @@ public:
         Vienmēr: O(1)
     */
 
-    void removeBack();
+    void removeLast();
 
     /*
     Description:
@@ -274,7 +263,7 @@ public:
         Vienmēr: O(1)
     */
 
-    void removeFront();
+    void removeFirst();
 
     /*
     Description:
@@ -284,7 +273,7 @@ public:
         Best case: O(1) | Worst case: O(n / 2) | Depends on where element is in the list.
         Labākajā gadijumā: O(1) | Sliktākajā gadijumā: O(n / 2) | Atkarībā no tā, kur elements atrodas.
     */
-    void removeById(int id);
+    void removeAt(int id);
 
 };
 
