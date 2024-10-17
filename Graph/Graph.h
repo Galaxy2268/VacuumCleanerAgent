@@ -14,12 +14,14 @@ class Graph {
 private:
     int vertexCount;
     int edgeCount;
-    List<Vertex> graph;
+    Vertex* graph;
 
 
 public:
 
-    Graph();
+    Graph(int size);
+
+    ~Graph();
 
     void addVertex(int id, string name);
 

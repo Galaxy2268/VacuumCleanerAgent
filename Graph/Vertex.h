@@ -17,6 +17,7 @@ private:
 
 public:
     Vertex(int id, string name);
+    Vertex();
 
     int getId();
 

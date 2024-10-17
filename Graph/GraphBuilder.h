@@ -7,6 +7,8 @@
 #include "Graph.h"
 
 
+
+//Use to write data to graph from file!
 class GraphBuilder {
 private:
     string fileName;
