@@ -5,6 +5,7 @@ ListEl<T>::ListEl(T data) : data(data), prev(nullptr), next(nullptr) {}
 
 template<typename T>
 void ListEl<T>::setPrev(ListEl<T> * prev){
+    if(prev == nullptr) return;
     this->prev = prev;
 }
 

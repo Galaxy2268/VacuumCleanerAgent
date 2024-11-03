@@ -25,7 +25,7 @@ public:
 
     void addNeighbour(Edge neighbour);
 
-    PriorityQueue<Edge> getNeighbours();
+    PriorityQueue<Edge>& getNeighbours();
 };
 
 #include "Vertex.cpp"

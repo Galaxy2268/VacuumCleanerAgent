@@ -13,19 +13,17 @@ Graph::Graph(int size){
 }
 
 Graph::~Graph() {
-    delete this->graph;
+    delete[] this->graph;
 }
 
 
 void Graph::addVertex(int id, string name)   {
-    Vertex vertex(id, name);
-    this->graph[id] = vertex;
+    this->graph[id] = Vertex (id, name);;
 }
 
 
 void Graph::addEdge(int from, int to, int cost)  {
-    Edge edge(from, to, cost);
-    this->graph[from].addNeighbour(edge);
+    this->graph[from].addNeighbour(Edge(from, to, cost));
     this->edgeCount++;
 }
 

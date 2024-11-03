@@ -23,7 +23,7 @@ string Vertex::getName() {
     return this->name;
 }
 
-PriorityQueue<Edge> Vertex::getNeighbours() {
+PriorityQueue<Edge>& Vertex::getNeighbours() {
     return this->neighbours;
 }
 
