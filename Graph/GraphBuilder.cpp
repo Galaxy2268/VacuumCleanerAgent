@@ -14,36 +14,34 @@ GraphBuilder& GraphBuilder::readFile(std::string fileName) {
 }
 
 Graph GraphBuilder::build() {
-    Graph graph;
-    if(!this->fileName.empty()){
-        
-        fstream file;
-        string name;
-        int from, to, cost;
+    fstream file;
+    string name;
+    int from, to, cost;
 
-        int vertexCount, edgeCount;
+    int vertexCount, edgeCount;
 
 
-        file.open(this->fileName);
+    file.open(this->fileName);
 
-            if (!file.is_open())    {
-                throw runtime_error("Error opening file");
-            }
-
-            file >> vertexCount >> edgeCount;
-
-            for (int i = 0; i < vertexCount; i++)   {
-                file >> name;
-                graph.addVertex(i, name);
-            }
-
-            for (int i = 0; i < edgeCount; i++) {
-                file >> from >> to >> cost;
-                graph.addEdge(from, to, cost);
-            }
-
-        file.close();
-
+    if (!file.is_open())    {
+        throw runtime_error("Error opening file");
     }
+
+    file >> vertexCount >> edgeCount;
+
+    Graph graph(vertexCount);
+
+    for (int i = 0; i < vertexCount; i++)   {
+        file >> name;
+        graph.addVertex(i, name);
+    }
+
+    for (int i = 0; i < edgeCount; i++) {
+        file >> from >> to >> cost;
+        graph.addEdge(from, to, cost);
+    }
+
+    file.close();
+
     return graph;
 }

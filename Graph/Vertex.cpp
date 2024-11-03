@@ -10,6 +10,11 @@ Vertex::Vertex(int id, std::string name) {
     this->name = name;
 }
 
+Vertex::Vertex() {
+    this->id = 0;
+    this->name = "";
+}
+
 int Vertex::getId() {
     return this->id;
 }
@@ -18,7 +23,7 @@ string Vertex::getName() {
     return this->name;
 }
 
-PriorityQueue<Edge> Vertex::getNeighbours() {
+PriorityQueue<Edge>& Vertex::getNeighbours() {
     return this->neighbours;
 }
 

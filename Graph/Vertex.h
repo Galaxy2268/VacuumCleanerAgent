@@ -17,6 +17,7 @@ private:
 
 public:
     Vertex(int id, string name);
+    Vertex();
 
     int getId();
 
@@ -24,7 +25,7 @@ public:
 
     void addNeighbour(Edge neighbour);
 
-    PriorityQueue<Edge> getNeighbours();
+    PriorityQueue<Edge>& getNeighbours();
 };
 
 #include "Vertex.cpp"
