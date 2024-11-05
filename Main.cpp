@@ -15,6 +15,7 @@ int main() {
 
 
     graph.print();
+    graph.printShortestPath(12, 2);
     return 0;
 
 

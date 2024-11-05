@@ -7,6 +7,8 @@
 
 #include "../List/List.h"
 #include "Vertex.h"
+#include "../Map/Map.h"
+#include "../Queue/Queue.h"
 #include <fstream>
 
 class Graph {
@@ -32,6 +34,10 @@ public:
     int getEdgeCount();
 
     void print();
+
+    List<int>* shortestPath(int start, int goal);
+
+    void printShortestPath(int start, int goal);
 
 };
 

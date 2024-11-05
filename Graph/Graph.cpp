@@ -48,3 +48,48 @@ void Graph::print() {
         cout << "\n";
     }
 }
+
+List<int>* Graph::shortestPath(int start, int goal) {
+    Queue<int> queue;
+    queue.push(start);
+
+    bool visited[this->vertexCount];
+    for(int i = 0; i < this->vertexCount; i++){
+        visited[i] = false;
+    }
+    visited[start] = true;
+
+    Map<int, int> parent;
+    parent.insert(start, -1);
+
+    while(!queue.isEmpty()){
+        int current = queue.pop();
+
+        if(current == goal){
+            List<int>* path = new List<int>;
+            int node = goal;
+            while(node != -1){
+                path->addFirst(node);
+                node = parent.get(node);
+            }
+            return path;
+        }
+        for(int i = 0; i < this->graph[current].getNeighbours().size(); i++){
+            int neighbour = this->graph[current].getNeighbours().getElById(i).getTo();
+            if(!visited[neighbour]){
+                queue.push(neighbour);
+                visited[neighbour] = true;
+                parent.insert(neighbour,current);
+            }
+        }
+    }
+
+}
+
+void Graph::printShortestPath(int start, int goal) {
+    List<int>* path = this->shortestPath(start, goal);
+
+    cout << "Shortest path from " << start << " to " << goal << " is " << path->size() - 1 << " steps: ";
+    path->print();
+    delete path;
+}

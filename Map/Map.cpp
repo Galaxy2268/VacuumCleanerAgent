@@ -9,7 +9,7 @@ void Map<Key, Value>::insert(Key key, Value value){
         throw std::runtime_error("Key already exists");
     }
     Pair<Key, Value> pair(key, value);
-    map.addBack(pair);
+    map.addLast(pair);
 }
 
 template <typename Key, typename Value>
@@ -18,7 +18,7 @@ void Map<Key, Value>::remove(Key key){
         throw std::runtime_error("There isnt such an element");
     }
     for(int i = 0; i < map.size(); i++){
-        if(map.getElById(i).getFirst() == key){
+        if(map.getEl(i).getFirst() == key){
             map.removeById(i);
             return;
         }
@@ -42,8 +42,8 @@ Value Map<Key, Value>::get(Key key){
         throw std::runtime_error("There isnt such an element");
     }
     for(int i = 0; i < map.size(); i++){
-        if(map.getElById(i).getFirst() == key){
-            return map.getElById(i).getSecond();
+        if(map.getEl(i).getFirst() == key){
+            return map.getEl(i).getSecond();
         }
     }
     throw std::runtime_error("There isnt such an element");
@@ -55,8 +55,8 @@ Key Map<Key, Value>::getByValue(Value value){
         throw std::runtime_error("There isnt such an element");
     }
     for(int i = 0; i < map.size(); i++){
-        if(map.getElById(i).getSecond() == value){
-            return map.getElById(i).getFirst();
+        if(map.getEl(i).getSecond() == value){
+            return map.getEl(i).getFirst();
         }
     }
     throw std::runtime_error("There isnt such an element");
@@ -68,7 +68,7 @@ bool Map<Key, Value>::exists(Key key){
         return false;
     }
     for(int i = 0; i < map.size(); i++){
-        if(map.getElById(i).getFirst() == key){
+        if(map.getEl(i).getFirst() == key){
             return true;
         }
     }
@@ -81,8 +81,8 @@ void Map<Key, Value>::updateValue(Key key, Value value){
         throw std::runtime_error("There isnt such an element");
     }
     for(int i = 0; i < map.size(); i++){
-        if(map.getElById(i).getFirst() == key){
-            this->map.getReferenceById(i).setSecond(value);
+        if(map.getEl(i).getFirst() == key){
+            this->map.getReference(i).setSecond(value);
             return;
         }
     }
