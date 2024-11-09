@@ -4,7 +4,7 @@
 
 #ifndef VACUMCLEANERAGENT_GRAPHBUILDER_H
 #define VACUMCLEANERAGENT_GRAPHBUILDER_H
-#include "Graph.h"
+#include "../Graph/Graph.h"
 
 
 
@@ -18,7 +18,7 @@ public:
 
     GraphBuilder& readFile(string fileName);
 
-    Graph build();
+    Graph* build();
 
 };
 

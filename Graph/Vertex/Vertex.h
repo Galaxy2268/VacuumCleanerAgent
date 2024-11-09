@@ -5,27 +5,30 @@
 #ifndef VACUMCLEANERAGENT_VERTEX_H
 #define VACUMCLEANERAGENT_VERTEX_H
 
-#include "Edge.h"
-#include "../PriorityQueue/PriorityQueue.h"
+#include "../Edge/Edge.h"
+#include "../../Queue/Queue.h"
 
 
 class Vertex {
 private:
     int id;
-    string name;
-    PriorityQueue<Edge> neighbours;
+    Queue<Edge>* neighbours;
 
 public:
-    Vertex(int id, string name);
+    Vertex(int id);
+
     Vertex();
+
+    ~Vertex();
 
     int getId();
 
-    string getName();
 
     void addNeighbour(Edge neighbour);
 
-    PriorityQueue<Edge>& getNeighbours();
+    Queue<Edge>* getNeighbours();
+
+    int getSize();
 };
 
 #include "Vertex.cpp"

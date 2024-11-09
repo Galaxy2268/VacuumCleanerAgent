@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "Graph/GraphBuilder.h"
+#include "Graph/GraphBuilder/GraphBuilder.h"
 
 using namespace std;
 
@@ -8,14 +8,16 @@ using namespace std;
 int main() {
     GraphBuilder graphBuilder;
 
-    Graph graph = graphBuilder
-            .readFile("testdata/MapOfRomania.txt")
+    Graph* graph = graphBuilder
+            .readFile("Data/test.txt")
             .build();
 
 
 
-    graph.print();
-    graph.printShortestPath(12, 2);
+
+    graph->printAgentActions("0101", 3);
+    delete graph;
+
     return 0;
 
 

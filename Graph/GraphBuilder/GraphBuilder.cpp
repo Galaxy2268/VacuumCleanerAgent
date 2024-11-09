@@ -13,10 +13,9 @@ GraphBuilder& GraphBuilder::readFile(std::string fileName) {
     return *this;
 }
 
-Graph GraphBuilder::build() {
+Graph* GraphBuilder::build() {
     fstream file;
-    string name;
-    int from, to, cost;
+    int from, to;
 
     int vertexCount, edgeCount;
 
@@ -29,19 +28,19 @@ Graph GraphBuilder::build() {
 
     file >> vertexCount >> edgeCount;
 
-    Graph graph(vertexCount);
+    Graph* graph = new Graph(vertexCount);
 
     for (int i = 0; i < vertexCount; i++)   {
-        file >> name;
-        graph.addVertex(i, name);
+        graph->addVertex(i);
     }
 
     for (int i = 0; i < edgeCount; i++) {
-        file >> from >> to >> cost;
-        graph.addEdge(from, to, cost);
+        file >> from >> to;
+        graph->addEdge(from, to);
     }
 
     file.close();
+
 
     return graph;
 }

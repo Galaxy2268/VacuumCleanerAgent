@@ -157,6 +157,33 @@ List<T>::~List(){
     this->clear();
 }
 
+template <typename T>
+List<T>::List(const List<T> &original) {
+    if(original.length < 1){
+        this->length = 0;
+        this->head = nullptr;
+        this->tail = nullptr;
+        return;
+    }
+    this->length = original.length;
+    this->head = new ListEl(original.head->getData());
+    ListEl<T>* current = head;
+    ListEl<T>* otherCurrent = original.head->getNext();
+
+    while (otherCurrent != nullptr) {
+        ListEl<T>* newNode = new ListEl(otherCurrent->getData());
+
+        current->setNext(newNode);
+        newNode->setPrev(current);
+
+        current = newNode;
+        otherCurrent = otherCurrent->getNext();
+    }
+
+    this->tail = current;
+}
+
+
 
 
 
@@ -310,7 +337,7 @@ int List<T>::size(){
 template <typename T>
 void List<T>::addLast(T data){
     ListEl<T> * newNode  = new ListEl<T>(data);
-    newNode->setPrev(tail);
+    newNode->setPrev(this->tail);
     if(this->isEmpty()){
         this->head = newNode;
     }else{

@@ -78,6 +78,12 @@ public:
     */
     ~List();
 
+    /*
+     Copy constructor
+     Kopijas konstruktors
+    */
+    List(const List &obj);
+
 
     /*
     Description:

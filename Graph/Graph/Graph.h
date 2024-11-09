@@ -5,10 +5,11 @@
 #ifndef VACUMCLEANERAGENT_GRAPH_H
 #define VACUMCLEANERAGENT_GRAPH_H
 
-#include "../List/List.h"
-#include "Vertex.h"
-#include "../Map/Map.h"
-#include "../Queue/Queue.h"
+#include "../../List/List.h"
+#include "../Vertex/Vertex.h"
+#include "../../Map/Map.h"
+#include "../../Queue/Queue.h"
+#include <cmath>
 #include <fstream>
 
 class Graph {
@@ -16,7 +17,7 @@ class Graph {
 private:
     int vertexCount;
     int edgeCount;
-    Vertex* graph;
+    Vertex** graph;
 
 
 public:
@@ -25,9 +26,9 @@ public:
 
     ~Graph();
 
-    void addVertex(int id, string name);
+    void addVertex(int id);
 
-    void addEdge(int from, int to, int cost);
+    void addEdge(int from, int to);
 
     int getVertexCount();
 
@@ -38,6 +39,8 @@ public:
     List<int>* shortestPath(int start, int goal);
 
     void printShortestPath(int start, int goal);
+
+    void printAgentActions(string roomState, int agentPos);
 
 };
 

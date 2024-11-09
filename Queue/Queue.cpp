@@ -9,7 +9,6 @@
 template<class T>
 template <typename... Args>
 Queue<T>::Queue(Args... data) : queue(data...){
-    queue.sort();
 }
 
 
@@ -76,5 +75,5 @@ T Queue<T>::pop(){
 
 template<class T>
 T Queue<T>::getElById(int id) {
-    return this->priorityQ.getEl(id);
+    return this->queue.getEl(id);
 }
