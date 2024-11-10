@@ -7,19 +7,24 @@
 class Map
 {
 private:
-    List<Pair<int, int>> map[10];
+    List<Pair<int, int>>** map;
     int length;
+    int capacity;
+    void shrink();
+    void expand();
 
 public:
     Map();
+
+    Map(int startCapacity);
+
+    ~Map();
 
     void insert(int key, int value);
 
     void remove(int key);
 
     int size();
-
-    void clear();
 
     int get(int key);
 

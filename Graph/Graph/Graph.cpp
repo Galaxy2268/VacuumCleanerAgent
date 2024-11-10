@@ -62,7 +62,7 @@ List<int>* Graph::shortestPath(int start, int goal) {
     }
     visited[start] = true;
 
-    Map parent;
+    Map parent(goal);
     parent.insert(start, -1);
 
     while(!queue.isEmpty()){

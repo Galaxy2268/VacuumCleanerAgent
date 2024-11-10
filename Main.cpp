@@ -6,7 +6,7 @@
 //Main function
 int main() {
 
-    system(R"(java -jar GraphGenerator\out\artifacts\GraphGenerator_jar\GraphGenerator.jar 17)");
+    system(R"(java -jar GraphGenerator\out\artifacts\GraphGenerator_jar\GraphGenerator.jar 16)");
 
 
     GraphBuilder graphBuilder;
@@ -18,7 +18,7 @@ int main() {
 
 
 
-//    graph->printAgentActions("000000000000", 0);
+    graph->printAgentActions("0000000000000000", 0);
     delete graph;
 
 
