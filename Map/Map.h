@@ -3,30 +3,29 @@
 #include "../Pair/Pair.h"
 #include "../List/List.h"
 
-template <typename Key, typename Value>
+
 class Map
 {
 private:
-List<Pair<Key, Value>> map;
+    List<Pair<int, int>> map[10];
+    int length;
 
 public:
-Map();
+    Map();
 
-void insert(Key key, Value value);
+    void insert(int key, int value);
 
-void remove(Key key);
+    void remove(int key);
 
-int size();
+    int size();
 
-void clear();
+    void clear();
 
-Value get(Key key);
+    int get(int key);
 
-Key getByValue(Value value);
+    bool exists(int key);
 
-bool exists(Key key);
-
-void updateValue(Key key, Value value);
+    void updateValue(int key, int value);
 
 
 };

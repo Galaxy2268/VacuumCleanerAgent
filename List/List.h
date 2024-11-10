@@ -1,6 +1,7 @@
 #ifndef LIST_H
 #define LIST_H
 #include "ListEl.h"
+#include <iostream>
 
 template <class T>
 class List{

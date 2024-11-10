@@ -1,7 +1,6 @@
 #include "List.h"
-#include <iostream>
 
-using namespace std;
+
 
 
 template<typename T>
@@ -259,7 +258,7 @@ void List<T>::addSorted(T data){
 template <typename T>
 T List<T>::getEl(int id){
     if(id < 0 || id > size() - 1 || isEmpty()){
-        throw out_of_range("Index out of bounds");
+        throw std::out_of_range("Index out of bounds");
     }
 
 
@@ -283,7 +282,7 @@ T List<T>::getEl(int id){
 template <typename T>
 T& List<T>::getReference(int id){
     if(id < 0 || id > size() - 1 || isEmpty()){
-        throw out_of_range("Index out of bounds");
+        throw std::out_of_range("Index out of bounds");
     }
 
 
@@ -307,7 +306,7 @@ T& List<T>::getReference(int id){
 template <typename T>
 T List<T>::getFirst(){
     if(this->isEmpty()){
-        throw out_of_range("List is empty");
+        throw std::out_of_range("List is empty");
     }
     return this->head->getData();
 }
@@ -315,7 +314,7 @@ T List<T>::getFirst(){
 template <typename T>
 T List<T>::getLast(){
     if(this->isEmpty()){
-        throw out_of_range("List is empty");
+        throw std::out_of_range("List is empty");
     }
     return this->tail->getData();
 }
@@ -366,7 +365,7 @@ void List<T>::addFirst(T data){
 template <typename T>
 void List<T>::insert(T data, int id){
     if(id < 0 || id > size() || isEmpty()){
-        throw out_of_range("Index out of bounds");
+        throw std::out_of_range("Index out of bounds");
     }
     if(id == 0){
         addFirst(data);
@@ -407,11 +406,11 @@ template <typename T>
 void List<T>::print(){
     ListEl<T> * current = this->head;
     while(current != nullptr){
-        cout << current->getData() << " ";
+        std::cout << current->getData() << " ";
         current = current->getNext();
         
     }
-    cout << "\n";
+    std::cout << "\n";
 }
 
 template <typename T>

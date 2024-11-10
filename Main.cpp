@@ -1,11 +1,14 @@
 #include <iostream>
-#include <string>
 #include "Graph/GraphBuilder/GraphBuilder.h"
 
-using namespace std;
+
 
 //Main function
 int main() {
+
+    system(R"(java -jar GraphGenerator\out\artifacts\GraphGenerator_jar\GraphGenerator.jar 17)");
+
+
     GraphBuilder graphBuilder;
 
     Graph* graph = graphBuilder
@@ -15,8 +18,10 @@ int main() {
 
 
 
-    graph->printAgentActions("0101", 3);
+//    graph->printAgentActions("000000000000", 0);
     delete graph;
+
+
 
     return 0;
 

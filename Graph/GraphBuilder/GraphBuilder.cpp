@@ -14,7 +14,7 @@ GraphBuilder& GraphBuilder::readFile(std::string fileName) {
 }
 
 Graph* GraphBuilder::build() {
-    fstream file;
+    std::fstream file;
     int from, to;
 
     int vertexCount, edgeCount;
@@ -23,7 +23,7 @@ Graph* GraphBuilder::build() {
     file.open(this->fileName);
 
     if (!file.is_open())    {
-        throw runtime_error("Error opening file");
+        throw std::runtime_error("Error opening file");
     }
 
     file >> vertexCount >> edgeCount;

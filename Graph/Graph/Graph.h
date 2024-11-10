@@ -40,7 +40,7 @@ public:
 
     void printShortestPath(int start, int goal);
 
-    void printAgentActions(string roomState, int agentPos);
+    void printAgentActions(std::string roomState, int agentPos);
 
 };
 

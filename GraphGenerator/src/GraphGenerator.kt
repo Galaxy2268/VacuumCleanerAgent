@@ -52,4 +52,14 @@ object GraphGenerator {
         }
 
     }
+
+    @JvmStatic
+    fun main(args: Array<String>) {
+        if (args.isNotEmpty()) {
+            val roomCount = args[0].toInt()
+            generateGraph(roomCount)
+        } else {
+            println("Please provide a room count as an argument.")
+        }
+    }
 }

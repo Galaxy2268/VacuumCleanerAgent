@@ -42,13 +42,13 @@ void Graph::print() {
     if(this->vertexCount == 0) return;
 
     for(int i = 0; i < this->vertexCount; i++){
-        cout << this->graph[i]->getId();
-        cout << " ||";
+        std::cout << this->graph[i]->getId();
+        std::cout << " ||";
         for(int j = 0; j < this->graph[i]->getNeighbours()->size(); j++){
-            cout << " -> ";
-            cout << this->graph[i]->getNeighbours()->getElById(j).getTo();
+            std::cout << " -> ";
+            std::cout << this->graph[i]->getNeighbours()->getElById(j).getTo();
         }
-        cout << "\n";
+        std::cout << "\n";
     }
 }
 
@@ -62,7 +62,7 @@ List<int>* Graph::shortestPath(int start, int goal) {
     }
     visited[start] = true;
 
-    Map<int, int> parent;
+    Map parent;
     parent.insert(start, -1);
 
     while(!queue.isEmpty()){
@@ -93,7 +93,7 @@ List<int>* Graph::shortestPath(int start, int goal) {
 void Graph::printShortestPath(int start, int goal) {
     List<int>* path = this->shortestPath(start, goal);
 
-    cout << "Shortest path from " << start << " to " << goal << " is " << path->size() - 1 << " steps: ";
+    std::cout << "Shortest path from " << start << " to " << goal << " is " << path->size() - 1 << " steps: ";
     path->print();
     delete path;
 }
@@ -108,11 +108,11 @@ void Graph::printAgentActions(std::string roomState, int agentPos) {
     int current = path->getFirst();
     for(int i = 1; i < path->size(); i++){
         if(current <= path->getEl(i) - roomCount){
-            cout << "Clear room number " << path->getEl(i) % roomCount << "\n";
+            std::cout << "Clear room number " << path->getEl(i) % roomCount << "\n";
             current = path->getEl(i);
             continue;
         }
-        cout << "Go to room number: " << path->getEl(i) % roomCount << "\n";
+        std::cout << "Go to room number: " << path->getEl(i) % roomCount << "\n";
         current = path->getEl(i);
 
     }

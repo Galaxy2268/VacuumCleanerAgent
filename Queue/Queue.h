@@ -6,7 +6,7 @@
 #ifndef VACUMCLEANERAGENT_QUEUE_H
 #define VACUMCLEANERAGENT_QUEUE_H
 
-#include <iostream>
+
 
 template <class T>
 class Queue {
