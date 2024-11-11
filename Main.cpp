@@ -6,7 +6,7 @@
 //Main function
 int main() {
     //call kotlin code, graph generator
-    //system(R"(java -jar GraphGenerator\out\artifacts\GraphGenerator_jar\GraphGenerator.jar 17 room_17.txt)");
+    //system(R"(java -jar GraphGenerator\out\artifacts\GraphGenerator_jar\GraphGenerator.jar 8 room_8.txt)");
 
 
     GraphBuilder graphBuilder;
