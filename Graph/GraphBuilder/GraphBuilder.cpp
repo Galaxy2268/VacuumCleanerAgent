@@ -17,7 +17,7 @@ Graph* GraphBuilder::build() {
     std::fstream file;
     int from, to;
 
-    int vertexCount, edgeCount;
+    int roomCount, vertexCount, edgeCount;
 
 
     file.open(this->fileName);
@@ -26,9 +26,10 @@ Graph* GraphBuilder::build() {
         throw std::runtime_error("Error opening file");
     }
 
-    file >> vertexCount >> edgeCount;
+    file >> roomCount >> vertexCount >> edgeCount;
 
     Graph* graph = new Graph(vertexCount);
+    graph->setRoomCount(roomCount);
 
     for (int i = 0; i < vertexCount; i++)   {
         graph->addVertex(i);

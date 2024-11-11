@@ -2,7 +2,7 @@ import java.io.File
 import kotlin.math.pow
 
 object GraphGenerator {
-    fun generateGraph(roomCount: Int) {
+    private fun generateGraph(roomCount: Int, fileName: String) {
         val edges: MutableList<Pair<Int, Int>> = mutableListOf()
         val states: MutableMap<Pair<String, Int>, Int> = mutableMapOf()
 
@@ -43,8 +43,9 @@ object GraphGenerator {
 
 
 
-        File("D:\\VacumCleanerAgent\\Data\\test.txt").printWriter().use { out ->
-            out.print(stateCount)
+        File("D:\\VacumCleanerAgent\\Data\\$fileName").printWriter().use { out ->
+            out.print(roomCount)
+            out.print(" $stateCount")
             out.println(" $edgeCount \n")
             for(i in edges){
                 out.println("${i.first} ${i.second}")
@@ -57,9 +58,10 @@ object GraphGenerator {
     fun main(args: Array<String>) {
         if (args.isNotEmpty()) {
             val roomCount = args[0].toInt()
-            generateGraph(roomCount)
+            val fileName = args[1]
+            generateGraph(roomCount, fileName)
         } else {
-            println("Please provide a room count as an argument.")
+            println("Please provide a room count and file name as an arguments.")
         }
     }
 }

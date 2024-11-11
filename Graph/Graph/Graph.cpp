@@ -9,6 +9,7 @@
 Graph::Graph(int size){
     this->edgeCount = 0;
     this->vertexCount = size;
+    this->roomCount = 0;
     this->graph = new Vertex*[size];
 }
 
@@ -30,12 +31,20 @@ void Graph::addEdge(int from, int to)  {
     this->edgeCount++;
 }
 
+void Graph::setRoomCount(int roomCount) {
+    this->roomCount = roomCount;
+}
+
 int Graph::getVertexCount() {
     return this->vertexCount;
 }
 
 int Graph::getEdgeCount()   {
     return this->edgeCount;
+}
+
+int Graph::getRoomCount() {
+    return this->roomCount;
 }
 
 void Graph::print() {

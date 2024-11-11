@@ -17,6 +17,7 @@ class Graph {
 private:
     int vertexCount;
     int edgeCount;
+    int roomCount;
     Vertex** graph;
 
 
@@ -29,6 +30,10 @@ public:
     void addVertex(int id);
 
     void addEdge(int from, int to);
+
+    void setRoomCount(int roomCount);
+
+    int getRoomCount();
 
     int getVertexCount();
 
