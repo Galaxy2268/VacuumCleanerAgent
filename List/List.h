@@ -282,6 +282,13 @@ public:
     */
     void removeAt(int id);
 
+
+    /*
+     pārbaudījums vai eksistē elements
+     */
+
+    bool exists(T element);
+
 };
 
 #include "List.cpp"

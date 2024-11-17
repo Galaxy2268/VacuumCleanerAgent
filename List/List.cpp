@@ -514,4 +514,18 @@ void List<T>::removeAt(int id){
 
 }
 
+template <typename T>
+bool List<T>::exists(T element) {
+    if(this->isEmpty()){
+        return false;
+    }
+
+    for(int i = 0; i < this->length; i++){
+        if(this->getEl(i) == element){
+            return true;
+        }
+    }
+    return false;
+}
+
 

@@ -41,11 +41,7 @@ public:
 
     void print();
 
-    List<int>* shortestPath(int start, int goal);
-
-    void printShortestPath(int start, int goal);
-
-    void printAgentActions(std::string roomState, int agentPos);
+    Vertex* getVertex(int index);
 
 };
 
