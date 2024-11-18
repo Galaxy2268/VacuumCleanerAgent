@@ -6,15 +6,20 @@
 
 Environment::Environment(Graph *environment, std::string roomState, int position) {
     this->environment = environment;
-    this->agent = VacuumCleanerAgent(roomState, position);
+    this->agent = new VacuumCleanerAgent(roomState, position);
 }
 
-Environment::Environment(Graph *environment, VacuumCleanerAgent agent) {
+Environment::~Environment() {
+    delete this->agent;
+    delete this->environment;
+}
+
+Environment::Environment(Graph *environment, VacuumCleanerAgent *agent) {
     this->environment = environment;
     this->agent = agent;
 }
 
-VacuumCleanerAgent &Environment::getAgent() {
+VacuumCleanerAgent *Environment::getAgent() {
     return this->agent;
 }
 
@@ -24,10 +29,10 @@ void Environment::setEnvironment(Graph *environment) {
 }
 
 void Environment::turnAgentOn() {
-    this->agent.cleanEnvironment(this->environment);
+    this->agent->cleanEnvironment(this->environment);
 }
 
 void Environment::turnAgentOn(std::string roomState, int position) {
-    this->agent.setCurrentState(roomState, position);
-    this->agent.cleanEnvironment(this->environment);
+    this->agent->setCurrentState(roomState, position);
+    this->agent->cleanEnvironment(this->environment);
 }

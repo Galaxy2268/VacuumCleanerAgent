@@ -11,14 +11,16 @@
 class Environment {
 private:
     Graph *environment;
-    VacuumCleanerAgent agent;
+    VacuumCleanerAgent *agent;
 
 public:
     Environment(Graph *environment, std::string roomState, int position);
 
-    Environment(Graph *environment, VacuumCleanerAgent agent);
+    Environment(Graph *environment, VacuumCleanerAgent *agent);
 
-    VacuumCleanerAgent &getAgent();
+    ~Environment();
+
+    VacuumCleanerAgent *getAgent();
 
     void setEnvironment(Graph *environment);
 
