@@ -1,5 +1,4 @@
 #include "Pair.h"
-#include <iostream>
 
 template <typename T1, typename T2>
 Pair<T1,T2>::Pair(T1 first, T2 second){
@@ -8,7 +7,10 @@ Pair<T1,T2>::Pair(T1 first, T2 second){
 }
 
 template <typename T1, typename T2>
-Pair<T1,T2>::Pair(){}
+Pair<T1,T2>::Pair(){
+    this->first = NULL;
+    this->second = NULL;
+}
 
 template <typename T1, typename T2>
 T1 Pair<T1,T2>::getFirst(){

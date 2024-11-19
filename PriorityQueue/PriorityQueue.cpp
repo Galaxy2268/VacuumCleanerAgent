@@ -1,4 +1,3 @@
-#include <iostream>
 #include "PriorityQueue.h"
 
 
@@ -45,7 +44,7 @@ void PriorityQueue<T>::print(){
 template<class T>
 T PriorityQueue<T>::peek(){
   if (priorityQ.isEmpty()){
-    throw out_of_range("Priority Queue is empty");
+    throw std::out_of_range("Priority Queue is empty");
   }
   return priorityQ.getFirst();
 }
@@ -62,7 +61,7 @@ void PriorityQueue<T>::push(T data){
 template<class T>
 T PriorityQueue<T>::pop(){
   if (priorityQ.isEmpty()){
-    throw out_of_range("Priority Queue is empty");
+    throw std::out_of_range("Priority Queue is empty");
   }
   T data = priorityQ.getFirst();
     priorityQ.removeFirst();

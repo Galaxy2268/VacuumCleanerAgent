@@ -4,21 +4,21 @@
 
 #ifndef VACUMCLEANERAGENT_GRAPHBUILDER_H
 #define VACUMCLEANERAGENT_GRAPHBUILDER_H
-#include "Graph.h"
+#include "../Graph/Graph.h"
 
 
 
 //Use to write data to graph from file!
 class GraphBuilder {
 private:
-    string fileName;
+    std::string fileName;
 
 public:
     GraphBuilder();
 
-    GraphBuilder& readFile(string fileName);
+    GraphBuilder& readFile(std::string fileName);
 
-    Graph build();
+    Graph* build();
 
 };
 

@@ -13,35 +13,35 @@ GraphBuilder& GraphBuilder::readFile(std::string fileName) {
     return *this;
 }
 
-Graph GraphBuilder::build() {
-    fstream file;
-    string name;
-    int from, to, cost;
+Graph* GraphBuilder::build() {
+    std::ifstream file;
+    int from, to;
 
-    int vertexCount, edgeCount;
+    int roomCount, vertexCount, edgeCount;
 
 
     file.open(this->fileName);
 
     if (!file.is_open())    {
-        throw runtime_error("Error opening file");
+        throw std::runtime_error("Error opening file");
     }
 
-    file >> vertexCount >> edgeCount;
+    file >> roomCount >> vertexCount >> edgeCount;
 
-    Graph graph(vertexCount);
+    Graph* graph = new Graph(vertexCount);
+    graph->setRoomCount(roomCount);
 
     for (int i = 0; i < vertexCount; i++)   {
-        file >> name;
-        graph.addVertex(i, name);
+        graph->addVertex(i);
     }
 
     for (int i = 0; i < edgeCount; i++) {
-        file >> from >> to >> cost;
-        graph.addEdge(from, to, cost);
+        file >> from >> to;
+        graph->addEdge(from, to);
     }
 
     file.close();
+
 
     return graph;
 }

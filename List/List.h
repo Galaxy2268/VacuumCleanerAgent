@@ -1,6 +1,7 @@
 #ifndef LIST_H
 #define LIST_H
 #include "ListEl.h"
+#include <iostream>
 
 template <class T>
 class List{
@@ -77,6 +78,12 @@ public:
         Always: O(n) | Linear complexity.
     */
     ~List();
+
+    /*
+     Copy constructor
+     Kopijas konstruktors
+    */
+    List(const List &obj);
 
 
     /*
@@ -274,6 +281,13 @@ public:
         Labākajā gadijumā: O(1) | Sliktākajā gadijumā: O(n / 2) | Atkarībā no tā, kur elements atrodas.
     */
     void removeAt(int id);
+
+
+    /*
+     pārbaudījums vai eksistē elements
+     */
+
+    bool exists(T element);
 
 };
 

@@ -1,7 +1,6 @@
 #include "List.h"
-#include <iostream>
 
-using namespace std;
+
 
 
 template<typename T>
@@ -157,6 +156,33 @@ List<T>::~List(){
     this->clear();
 }
 
+template <typename T>
+List<T>::List(const List<T> &original) {
+    if(original.length < 1){
+        this->length = 0;
+        this->head = nullptr;
+        this->tail = nullptr;
+        return;
+    }
+    this->length = original.length;
+    this->head = new ListEl(original.head->getData());
+    ListEl<T>* current = head;
+    ListEl<T>* otherCurrent = original.head->getNext();
+
+    while (otherCurrent != nullptr) {
+        ListEl<T>* newNode = new ListEl(otherCurrent->getData());
+
+        current->setNext(newNode);
+        newNode->setPrev(current);
+
+        current = newNode;
+        otherCurrent = otherCurrent->getNext();
+    }
+
+    this->tail = current;
+}
+
+
 
 
 
@@ -232,7 +258,7 @@ void List<T>::addSorted(T data){
 template <typename T>
 T List<T>::getEl(int id){
     if(id < 0 || id > size() - 1 || isEmpty()){
-        throw out_of_range("Index out of bounds");
+        throw std::out_of_range("Index out of bounds");
     }
 
 
@@ -256,7 +282,7 @@ T List<T>::getEl(int id){
 template <typename T>
 T& List<T>::getReference(int id){
     if(id < 0 || id > size() - 1 || isEmpty()){
-        throw out_of_range("Index out of bounds");
+        throw std::out_of_range("Index out of bounds");
     }
 
 
@@ -280,7 +306,7 @@ T& List<T>::getReference(int id){
 template <typename T>
 T List<T>::getFirst(){
     if(this->isEmpty()){
-        throw out_of_range("List is empty");
+        throw std::out_of_range("List is empty");
     }
     return this->head->getData();
 }
@@ -288,7 +314,7 @@ T List<T>::getFirst(){
 template <typename T>
 T List<T>::getLast(){
     if(this->isEmpty()){
-        throw out_of_range("List is empty");
+        throw std::out_of_range("List is empty");
     }
     return this->tail->getData();
 }
@@ -310,7 +336,7 @@ int List<T>::size(){
 template <typename T>
 void List<T>::addLast(T data){
     ListEl<T> * newNode  = new ListEl<T>(data);
-    newNode->setPrev(tail);
+    newNode->setPrev(this->tail);
     if(this->isEmpty()){
         this->head = newNode;
     }else{
@@ -339,7 +365,7 @@ void List<T>::addFirst(T data){
 template <typename T>
 void List<T>::insert(T data, int id){
     if(id < 0 || id > size() || isEmpty()){
-        throw out_of_range("Index out of bounds");
+        throw std::out_of_range("Index out of bounds");
     }
     if(id == 0){
         addFirst(data);
@@ -380,11 +406,11 @@ template <typename T>
 void List<T>::print(){
     ListEl<T> * current = this->head;
     while(current != nullptr){
-        cout << current->getData() << " ";
+        std::cout << current->getData() << " ";
         current = current->getNext();
         
     }
-    cout << "\n";
+    std::cout << "\n";
 }
 
 template <typename T>
@@ -486,6 +512,20 @@ void List<T>::removeAt(int id){
         this->searchDeleteFront(id);
     }
 
+}
+
+template <typename T>
+bool List<T>::exists(T element) {
+    if(this->isEmpty()){
+        return false;
+    }
+
+    for(int i = 0; i < this->length; i++){
+        if(this->getEl(i) == element){
+            return true;
+        }
+    }
+    return false;
 }
 
 
