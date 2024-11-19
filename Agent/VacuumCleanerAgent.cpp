@@ -6,6 +6,7 @@
 
 
 VacuumCleanerAgent::VacuumCleanerAgent(std::string roomState, int position) {
+    this->timer = Timer();
     int roomCount = roomState.size();
     this->cleaned = new bool[roomCount];
     int stateCount = pow(2, roomCount) * roomCount;
@@ -46,6 +47,7 @@ void VacuumCleanerAgent::setCurrentState(std::string roomState, int position) {
     this->cleaned = new bool[roomCount];
     int stateCount = pow(2, roomCount) * roomCount;
     for(int i = 0; i < roomCount; i++){
+        this->goalStates->addLast(stateCount - i + 1);
         this->cleaned[i] = false;
         if(roomState[i] == '0'){
             roomState[i] = '1';
@@ -57,9 +59,6 @@ void VacuumCleanerAgent::setCurrentState(std::string roomState, int position) {
 
     this->currentState = state;
     this->goalStates->clear();
-    for(int i = 1; i <= roomCount; i++){
-        this->goalStates->addLast(stateCount - i);
-    }
 }
 
 int VacuumCleanerAgent::getCurrentState() {
@@ -71,6 +70,7 @@ List<int> const *VacuumCleanerAgent::getGoalStates() {
 }
 
 void VacuumCleanerAgent::cleanEnvironment(Graph *environment) {
+    this->timer.startTimer();
     if(this->goalStates->exists(this->currentState)){
         std::cout << "Rooms already clean";
         return;
@@ -106,6 +106,7 @@ void VacuumCleanerAgent::cleanEnvironment(Graph *environment) {
             }
         }
     }
+
     for(int i = 0; i < this->performedActions->size(); i++){
         std::cout << i + 1 << ')' << this->performedActions->getEl(i) << "\n";
     }
@@ -115,13 +116,13 @@ void VacuumCleanerAgent::cleanEnvironment(Graph *environment) {
 void VacuumCleanerAgent::cleanRoom(int nextState, int roomCount) {
     int roomId = this->currentState % roomCount;
     this->cleaned[roomId] = true;
-    this->performedActions->addLast("Agent cleaned room " + std::to_string(roomId));
+    this->performedActions->addLast("Agent cleaned room " + std::to_string(roomId + 1));
     this->currentState = nextState;
 }
 
 bool VacuumCleanerAgent::isRoomDirty(int connectionCount, int roomCount, int stateToCheck) {
     int roomId = stateToCheck % roomCount;
-    this->performedActions->addLast("Agent checked room " + std::to_string(roomId));
+    this->performedActions->addLast("Agent checked room " + std::to_string(roomId + 1));
     if(connectionCount >= roomCount){
         return true;
     } else{
@@ -132,8 +133,57 @@ bool VacuumCleanerAgent::isRoomDirty(int connectionCount, int roomCount, int sta
 
 void VacuumCleanerAgent::goToRoom(int nextState, int roomCount) {
     int roomId = nextState % roomCount;
-    this->performedActions->addLast("Agent went to room " + std::to_string(roomId));
+    this->performedActions->addLast("Agent went to room " + std::to_string(roomId + 1));
     this->currentState = nextState;
+}
+
+
+void VacuumCleanerAgent::cleanEnvironmentWithoutSensors(Graph *environment){
+    int currentState = this->getCurrentState();
+    int vertexCount = environment->getVertexCount();
+
+    Map path;
+    path.insert(currentState, -1);
+
+    bool visitedVertices[vertexCount];
+    for(int i = 0; i < vertexCount; i++){
+        visitedVertices[i] = false;
+    }
+    visitedVertices[currentState] = true;
+
+    Queue<int> queue;
+
+    queue.push(currentState);
+    while(!queue.isEmpty()){
+        int current = queue.pop();
+
+
+        if(this->goalStates->exists(current)){
+            List<int> pathList;
+            int node = current;
+            while(node != -1){
+                pathList.addFirst(node);
+                node = path.get(node);
+            }
+            for(int i = 0; i < pathList.size(); i++){
+                std::cout << pathList.getEl(i);
+                if(i < pathList.size() - 1){
+                    std::cout << "->";
+                }
+            }
+            return;
+        }
+
+
+        for(int i = 0; i < environment->getVertex(current)->getNeighbours()->size(); i++){
+            int neighbour = environment->getVertex(current)->getNeighbours()->getElById(i).getTo();
+            if (!visitedVertices[neighbour]){
+                queue.push(neighbour);
+                visitedVertices[neighbour] = true;
+                path.insert(neighbour, current);
+            }
+        }
+    }
 }
 
 

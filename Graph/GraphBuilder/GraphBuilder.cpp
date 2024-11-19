@@ -14,7 +14,7 @@ GraphBuilder& GraphBuilder::readFile(std::string fileName) {
 }
 
 Graph* GraphBuilder::build() {
-    std::fstream file;
+    std::ifstream file;
     int from, to;
 
     int roomCount, vertexCount, edgeCount;

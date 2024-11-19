@@ -28,6 +28,10 @@ public:
 
     void turnAgentOn(std::string roomState, int position);
 
+    void turnAgentOnWithoutSensors();
+
+    void turnAgentOnWithoutSensors(std::string roomState, int position);
+
 };
 
 #include "Environment.cpp"

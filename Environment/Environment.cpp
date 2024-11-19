@@ -36,3 +36,12 @@ void Environment::turnAgentOn(std::string roomState, int position) {
     this->agent->setCurrentState(roomState, position);
     this->agent->cleanEnvironment(this->environment);
 }
+
+void Environment:: turnAgentOnWithoutSensors(){
+    this->agent->cleanEnvironmentWithoutSensors(this->environment);
+}
+
+void Environment:: turnAgentOnWithoutSensors(std::string roomState, int position){
+    this->agent->setCurrentState(roomState, position);
+    this->agent->cleanEnvironmentWithoutSensors(this->environment);
+}
