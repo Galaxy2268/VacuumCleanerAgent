@@ -6,11 +6,12 @@
 
 
 VacuumCleanerAgent::VacuumCleanerAgent(std::string roomState, int position) {
-    this->timer = Timer();
+    this->goalStates = new List<int>();
     int roomCount = roomState.size();
     this->cleaned = new bool[roomCount];
     int stateCount = pow(2, roomCount) * roomCount;
     for(int i = 0; i < roomCount; i++){
+        this->goalStates->addLast(stateCount - (i + 1));
         this->cleaned[i] = false;
         if(roomState[i] == '0'){
             roomState[i] = '1';
@@ -21,10 +22,6 @@ VacuumCleanerAgent::VacuumCleanerAgent(std::string roomState, int position) {
     int state = (stoi(roomState, nullptr, 2) * roomCount) + position;
 
     this->currentState = state;
-    this->goalStates = new List<int>();
-    for(int i = 1; i <= roomCount; i++){
-        this->goalStates->addLast(stateCount - i);
-    }
     this->performedActions = new List<std::string>();
 }
 
@@ -47,7 +44,7 @@ void VacuumCleanerAgent::setCurrentState(std::string roomState, int position) {
     this->cleaned = new bool[roomCount];
     int stateCount = pow(2, roomCount) * roomCount;
     for(int i = 0; i < roomCount; i++){
-        this->goalStates->addLast(stateCount - i + 1);
+        this->goalStates->addLast(stateCount - (i + 1));
         this->cleaned[i] = false;
         if(roomState[i] == '0'){
             roomState[i] = '1';
@@ -58,7 +55,6 @@ void VacuumCleanerAgent::setCurrentState(std::string roomState, int position) {
     int state = (stoi(roomState, nullptr, 2) * roomCount) + position;
 
     this->currentState = state;
-    this->goalStates->clear();
 }
 
 int VacuumCleanerAgent::getCurrentState() {
@@ -70,7 +66,6 @@ List<int> const *VacuumCleanerAgent::getGoalStates() {
 }
 
 void VacuumCleanerAgent::cleanEnvironment(Graph *environment) {
-    this->timer.startTimer();
     if(this->goalStates->exists(this->currentState)){
         std::cout << "Rooms already clean";
         return;
@@ -107,9 +102,9 @@ void VacuumCleanerAgent::cleanEnvironment(Graph *environment) {
         }
     }
 
-    for(int i = 0; i < this->performedActions->size(); i++){
-        std::cout << i + 1 << ')' << this->performedActions->getEl(i) << "\n";
-    }
+//    for(int i = 0; i < this->performedActions->size(); i++){
+//        std::cout << i + 1 << ')' << this->performedActions->getEl(i) << "\n";
+//    }
     this->performedActions->clear();
 }
 
@@ -159,18 +154,18 @@ void VacuumCleanerAgent::cleanEnvironmentWithoutSensors(Graph *environment){
 
 
         if(this->goalStates->exists(current)){
-            List<int> pathList;
-            int node = current;
-            while(node != -1){
-                pathList.addFirst(node);
-                node = path.get(node);
-            }
-            for(int i = 0; i < pathList.size(); i++){
-                std::cout << pathList.getEl(i);
-                if(i < pathList.size() - 1){
-                    std::cout << "->";
-                }
-            }
+//            List<int> pathList;
+//            int node = current;
+//            while(node != -1){
+//                pathList.addFirst(node);
+//                node = path.get(node);
+//            }
+//            for(int i = 0; i < pathList.size(); i++){
+//                std::cout << pathList.getEl(i);
+//                if(i < pathList.size() - 1){
+//                    std::cout << "->";
+//                }
+//            }
             return;
         }
 

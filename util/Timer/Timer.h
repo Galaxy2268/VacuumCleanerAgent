@@ -18,6 +18,8 @@ public:
 
     void startTimer();
 
+    void stopTimer();
+
     double getTimeInMs();
 
 };

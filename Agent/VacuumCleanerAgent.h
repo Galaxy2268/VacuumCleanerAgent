@@ -5,8 +5,6 @@
 #ifndef VACUMCLEANERAGENT_VACUUMCLEANERAGENT_H
 #define VACUMCLEANERAGENT_VACUUMCLEANERAGENT_H
 #include "../Graph/Graph/Graph.h"
-#include "../util/Logger/Logger.h"
-#include "../util/Timer/Timer.h"
 
 
 
@@ -16,7 +14,6 @@ private:
     List<int> *goalStates;
     List<std::string> *performedActions;
     bool *cleaned;
-    Timer timer;
 
 
     void goToRoom(int nextState, int roomCount);

@@ -31,3 +31,12 @@ void Logger::log(std::string message) {
         throw std::runtime_error("Log file isn't opened");
     }
 }
+
+void Logger::log(double message) {
+    if (logFile.is_open()) {
+        logFile << message << std::endl;
+        logFile.flush();
+    } else {
+        throw std::runtime_error("Log file isn't opened");
+    }
+}

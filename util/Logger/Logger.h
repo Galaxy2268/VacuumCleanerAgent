@@ -22,6 +22,8 @@ public:
 
     void log(std::string message);
 
+    void log(double message);
+
 
 };
 
