@@ -34,9 +34,9 @@ int PriorityQueue<T>::size(){
 
 template<class T>
 void PriorityQueue<T>::print(){
-  while (!priorityQ.isEmpty()){
-    std::cout<< this->pop() << " ";
-  }
+  for(int i = 0; i < priorityQ.size(); i++){
+        std::cout << priorityQ.getEl(i) << " ";
+    }
 }
 
 

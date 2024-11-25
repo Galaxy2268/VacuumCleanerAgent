@@ -74,14 +74,18 @@ public:
         Destructor of the list which deallocates memory taken by list elements, uses clear method.
         Saraksta destruktors, kurš atbrīvo aizņemto atmiņu ar saraksta elementiem, izmanto clear metodi.
     Complexity:
-        Vienmēr: O(n) | Lineārā sarežģītība.
-        Always: O(n) | Linear complexity.
+        Vienmēr: O(n) | Lineārā sarežģītība
+        Always: O(n) | Linear complexity
     */
     ~List();
 
     /*
-     Copy constructor
-     Kopijas konstruktors
+    Description:
+        Copy constructor. Is called when object is copied.
+        Kopijas konstruktors. Tiek izsaukts, kad obejkts tiek kopēts.
+    Complexity:
+        Vienmēr: O(n) | Lineārā sarežģītība
+        Always: O(n) | Linear complexity
     */
     List(const List &obj);
 
@@ -110,8 +114,8 @@ public:
 
     /*
     Description:
-        Method which deallocates memory taken by list elements.
-        Metode, kura atbrīvo aizņemto atmiņu ar saraksta elementiem.
+        Method which clears all list elements.
+        Metode, kura izdzēš visus saraksta elementus.
     Complexity:
         Always: O(n) | Linear complexity.
         Vienmēr: O(n) | Lineārā sarežģītība.
@@ -284,8 +288,13 @@ public:
 
 
     /*
-     pārbaudījums vai eksistē elements
-     */
+    Description:
+        Method that checks if a given element exists in the list.
+        Metode, kas pārbauda, vai dotais elements eksistē sarakstā.
+    Complexity:
+        Best case: O(1) | Worst case: O(n) | Depends on where the element is in the list. Or if element doesn't exist.
+        Labākajā gadijumā: O(1) | Sliktākajā gadijumā: O(n) | Atkarībā no tā, kur elements atrodas. Vai, ja elements nav sarakstā.
+    */
 
     bool exists(T element);
 

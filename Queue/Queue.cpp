@@ -36,8 +36,8 @@ int Queue<T>::size(){
 
 template<class T>
 void Queue<T>::print(){
-    while (!queue.isEmpty()){
-        std::cout<< this->pop() << " ";
+    for(int i = 0; i < queue.size(); i++){
+        std::cout << queue.getEl(i) << " ";
     }
 }
 
