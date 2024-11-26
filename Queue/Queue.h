@@ -6,7 +6,8 @@
 #ifndef VACUMCLEANERAGENT_QUEUE_H
 #define VACUMCLEANERAGENT_QUEUE_H
 
-
+//Queue is a FiFo (First in - First out) data structure that returns the element that has been first added to the queue. Queue uses linked list to store elements.
+//Rinda ir data struktūra, kas seko "Pirmais iekšā - Pirmais ārā" principam, kur pirmais elements tiek atgriezts tas, kurš pirmais jeb visilgāk atrodas rindā. Rinda izmanto saistīto sarakstu, lai glabātu elementus.
 
 template <class T>
 class Queue {
@@ -88,7 +89,7 @@ public:
 
     /*
     Description:
-        Method that add an element to back of queue.
+        Method that adds an element to back of queue.
         Metode, kas ievieto elementu rindas aizmugurē.
     Complexity:
         Always: O(1)

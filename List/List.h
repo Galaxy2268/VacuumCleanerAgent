@@ -3,6 +3,9 @@
 #include "ListEl.h"
 #include <iostream>
 
+//Linked list is a linear data structure that dynamically stores list elements (ListEl), allowing to change list in runtime (add, remove elements)
+//Saistītais saraksts ir lineāra datu struktūra, kas dinamiski uzglababā saraksta elementus (ListEl), ļaujot vienā programmas darbības laikā mainīt sarakstu (pievienot, noņemt elementus)
+
 template <class T>
 class List{
 
