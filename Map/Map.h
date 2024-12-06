@@ -4,13 +4,33 @@
 #include "../List/List.h"
 
 
+//Map is key-value data structure - we can get specific value by key. It has good performance as map uses optimisation (hashcode) to efficiently store data. As a result to receive a value usally takes O(1) steps but map stays dynymic.
+//Mape ir atslēgas-vērtību datu struktūra, kas nozīmē, ka varam iegūt vērtību pēc tās atslēgas. Tai piemīt laba veiktspēja, jo tā izmanto optimizāciju (heša kodus), lai efektīvāk glabātu datus. Rezultātā vērtības iegūšana pārsvarā aizņem O(1) soļus, mapei paliekot dinamiskai.
 class Map
 {
 private:
     List<Pair<int, int>>** map;
+
     int length;
+
     int capacity;
+    /*
+    Description:
+        Method that shrinks map array by recreating it to efficiantly store memory.
+        Metode kas samazina mapes masīvu izveidojot to no jauna, lai efektīvi izmantot atmiņu.
+    Complexity:
+        Always: O(n)
+        Vienmēr: O(n)
+    */
     void shrink();
+    /*
+    Description:
+        Method that expands map array by recreating it to efficiantly store memory.
+        Metode kas palielina mapes masīvu, izveidojot to no jauna, lai efektīvi izmantotu atmiņu.
+    Complexity:
+        Always: O(n)
+        Vienmēr: O(n)
+    */
     void expand();
 
 public:
@@ -19,8 +39,8 @@ public:
         Constructor for map that sets initial capacity 10.
         Konstruktors mapei, kas iestata kapacitāti lielumā 10 pēc noklusējuma.
     Complexity:
-        Always: O(10)
-        Vienmēr: O(10)
+        Always: O(1)
+        Vienmēr: O(1)
     */
     Map();
 
@@ -60,7 +80,7 @@ public:
     /*
     Description:
         Method that removes element from map by given key.
-        Metode, kas izdzēš elementu no mapes pēc dotās atslēgas
+        Metode, kas izdzēš elementu no mapes pēc dotās atslēgas.
     Complexity:
         Best case: O(1) | Worst case O(n) | Where n is collision count in the relevant bucket
         Labākajā gadījumā: O(1) | Sliktākajā gadījumā O(n) | Kur n ir kolīziju skaits attiecīgajā masīva šūnā

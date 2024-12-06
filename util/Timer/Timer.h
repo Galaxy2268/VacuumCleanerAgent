@@ -7,7 +7,8 @@
 
 #include <chrono>
 
-
+//Class that snaps time points and than can meassure passed time between them in miliseconds.
+//Klase, kas fiksē laika punktus, un var noteikt laiku starp tiem milisekundēs. 
 class Timer {
 private:
     std::chrono::steady_clock::time_point start;
@@ -16,10 +17,16 @@ private:
 public:
     Timer();
 
+    //Snap first time point.
+    //Fiksēt pirmo laika punktu.
     void startTimer();
 
+    //Snap second time point.
+    //Fiksēt otro laika punktu.
     void stopTimer();
 
+    //Meassure time between time points in miliseconds.
+    //Nosaka laiku starp laika punktiem milisekundēs.
     double getTimeInMs();
 
 };
